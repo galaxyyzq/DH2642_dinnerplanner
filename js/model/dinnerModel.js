@@ -4,45 +4,74 @@ var DinnerModel = function() {
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
+	var menu = [];
 
-	this.setNumberOfGuests = function(num) {
-		//TODO Lab 1
+    this.setNumberOfGuests = function(num) {
+		this.guestNumber = num
 	}
 	
 	this.getNumberOfGuests = function() {
-		//TODO Lab 1
+		return this.guestNumber;
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 1
+		for(key in menu){
+			if(menu[key].type == type) {
+				return menu[key];
+			}
+		}
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 1
+		for (key in menu){
+			return menu[key];
+		}
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
+	//console.log or return?
 	this.getAllIngredients = function() {
-		//TODO Lab 1
+		for(key in menu){
+			for(var i=0; i<menu[key].ingredients.length;i++){
+				console.log(menu[key].ingredients[i]);
+			}
+		}
+
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 1
+		var totalPrice = 0;
+		for (key in menu){
+			for (var i=0; i<menu[key].ingredients.length;i++){
+				totalPrice = totalPrice + menu[key].ingredients[i].price * guestNumber;
+			}
+		}
+		return totalPrice;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
+	//???
 	this.addDishToMenu = function(id) {
-		//TODO Lab 1 
+		for(key in dishes){
+			if(dishes[key].id == id) {
+				menu.push(dish[key]);
+			}
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 1
+		for(key in dishes){
+			if(dishes[key].id == id) {
+				menu.pop(dish[key]);
+			}
+		}
 	}
+	
+
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
