@@ -1,0 +1,45 @@
+.sidebar{
+	display: flex;
+	flex-direction: column;
+	background-color: #eeeeee;
+	padding: 0;
+	justify-content: flex-start;
+
+}
+
+.dishmenu{
+	display: flex;
+	flex-direction: column;
+
+}
+
+th {
+    text-align: left;
+}
+
+td {
+    text-align: left;
+}
+
+.sidebarline{
+	align-items:center;
+	padding: 10px 0 20px 0;
+}
+
+.searchbar{
+	display: flex;
+	flex-direction: row;
+	border-bottom: 2px;
+
+}
+.searchresult{
+	display: flex;
+	flex-direction:row;
+	margin-top: 30px;
+
+}
+
+.dishpic{
+	width: 160px;
+	height: 120px;
+}

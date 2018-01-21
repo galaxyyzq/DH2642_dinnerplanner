@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/a.css" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+  </head>
+  <body>
+	<div class="container-fluid ">
+		<div class="col-md-12 text-center" style="padding: 40px 0 40px 0; background-color:#dddddd">
+			<h1>Dinner planner</h1>
+		</div>
+		<div class="col-sm-12" >
+			<div class="col-sm-3 sidebar">
+
+				<h4>My Dinner</h4>
+				<div class="sidebarline">
+					<span style="float:left; display: block">People</span>
+					<div class="dropdown" style="float: left;">
+  						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+   						 	Number
+   							<span class="caret"></span>
+  						</button>
+  						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      						<li><a href="#">1</a></li>
+      						<li><a href="#">2</a></li>
+      						<li><a href="#">3</a></li>
+      						<li><a href="#">4</a></li>
+      						<li><a href="#">5</a></li>
+  						</ul>
+					</div>
+				</div>
+				<table class="table">
+					<tr>
+    					<th>Dishname</th>
+    					<th>Cost</th> 
+  					</tr>
+  					<tr>
+    					<td>zzzzz</td>
+    					<td>kkkkk</td> 
+  					</tr>
+				</table>
+				<p style="text-align:right;">SEK:0</p>
+				<button class="btn btn-default btn-lg">Comfirm dinner</button>  
+
+			</div>
+
+
+
+			<div class="col-sm-9 dishmenu" >
+				<h4>Find a dish</h4>
+				<div class="searchbar">
+
+      				<input type="text" class="form-control" placeholder="Enter key words" aria-label="..." style="width:40%">
+      				<div class="dropdown" style="width:40%">
+  						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+   						 	Type
+   							<span class="caret"></span>
+  						</button>
+  						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      						<li><a href="#">1</a></li>
+      						<li><a href="#">2</a></li>
+      						<li><a href="#">3</a></li>
+      						<li><a href="#">4</a></li>
+      						<li><a href="#">5</a></li>
+  						</ul>
+					</div>
+      				
+     				<button class="btn btn-default btn-lg" style="float:right">Search</button> 
+
+				</div>
+				<div class="searchresult">
+					<!-- item1 -->
+					<div class="col-sm-3 col-md-2">
+						<div class="thumbnail">
+      						<img src="images/bakedbrie.jpg" class="dishpic">
+      						<div class="caption text-center">
+        						<h4>bakedbrie</h4>
+        						<p><a href="#" class="btn btn-primary" role="button">Add</a> </p>
+      					</div>
+    					</div>
+    				</div>
+    				<!-- item2 -->
+					<div class="col-sm-3 col-md-2">
+						<div class="thumbnail">
+      						<img src="images/icecream.jpg" class="dishpic">
+      						<div class="caption text-center">
+        						<h4>Icecream</h4>
+        						<p><a href="#" class="btn btn-primary" role="button">Add</a> </p>
+      					</div>
+    					</div>
+    				</div>
+
+				</div>
+
+			</div>
+			
+		</div>
+
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<!-- TODO: Here you should include JS code for your other views -->
+  </body>
+</html>
