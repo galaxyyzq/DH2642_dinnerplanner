@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/a.css" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+  </head>
+  <body>
+	<div class="container-fluid">
+		<div class="col-md-12 text-center" style="padding: 40px 0 40px 0; background-color:#dddddd">
+			<h1>Dinner planner</h1>
+		</div>
+		<div class="col-md-12 dinneroverview" >
+        <h3>My dinner: 3 People</h3>
+        <button type="button" class="btn btn-default">Go back and edit dinner</button>
+    </div>
+
+    <div class="col-md-12 dishoverview" >
+        <div class="thumbnail" style="margin: 0 10px 0 10px">
+              <img src="images/meatballs.jpg" class="dishpic">
+              <div class="caption text-center">
+                    <h4>Meatballs</h4>
+                    <p>20 SEK</p>
+              </div>
+        </div>
+        <div class="thumbnail" style="margin: 0 10px 0 10px">
+                  <img src="images/icecream.jpg" class="dishpic">
+                  <div class="caption text-center">
+                    <h4>Icecream</h4>
+                    <p>30 SEK</p>
+                </div>
+          </div>
+          <div class="thumbnail" style="margin: 0 10px 0 10px">
+                  <img src="images/sourdough.jpg" class="dishpic">
+                  <div class="caption text-center">
+                    <h4>Sourdough</h4>
+                    <p>30 SEK</p>
+                </div>
+          </div>
+    </div>
+
+    <div class="col-md-12 text-center" style="padding: 20px 0 20px 0">
+      <div style="margin: 0 20px 0 20px">
+            <h3>Total</h3>
+            <p>90 SEK</p>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg">Print Full Recipe</button>
+    </div>
+
+
+		</div>
+
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<!-- TODO: Here you should include JS code for your other views -->
+  </body>
+</html>

@@ -1,15 +1,22 @@
+body{
+	height: 100%;
+}
+
+
 .sidebar{
 	display: flex;
 	flex-direction: column;
 	background-color: #eeeeee;
-	padding: 0;
 	justify-content: flex-start;
+	height: 600px;
+	padding: 20px 0 20px 0;
 
 }
 
 .dishmenu{
 	display: flex;
 	flex-direction: column;
+	padding: 20px 0 20px 0;
 
 }
 
@@ -22,14 +29,20 @@ td {
 }
 
 .sidebarline{
+	display: flex;
+	flex-direction:row;
 	align-items:center;
-	padding: 10px 0 20px 0;
+	justify-content:space-between;
+	padding: 0 0 20px 0;
+
 }
 
 .searchbar{
 	display: flex;
 	flex-direction: row;
-	border-bottom: 2px;
+	align-items:center;
+	justify-content: flex-start;
+	padding: 0 0 20px 0;
 
 }
 .searchresult{
@@ -40,6 +53,24 @@ td {
 }
 
 .dishpic{
-	width: 160px;
-	height: 120px;
+	width: 140px;
+	height: 140px;
+}
+
+.dinneroverview{
+	display: flex;
+	flex-direction:row;
+	align-items:center;
+	justify-content:space-between;
+	padding:20px 50px 20px 50px;
+
+}
+
+.dishoverview{
+	display: flex;
+	flex-direction:row;
+	align-items:flex-end;
+	justify-content:center;
+	flex-wrap: wrap;
+
 }
