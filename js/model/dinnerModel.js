@@ -35,7 +35,7 @@ var DinnerModel = function() {
 	this.getAllIngredients = function() {
 		for(key in menu){
 			for(var i=0; i<menu[key].ingredients.length;i++){
-				console.log(menu[key].ingredients[i]);
+				console.log(menu[key].ingredients[i]); //or return??
 			}
 		}
 
@@ -56,9 +56,26 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	//???
 	this.addDishToMenu = function(id) {
+		var allType = [];
 		for(key in dishes){
 			if(dishes[key].id == id) {
-				menu.push(dish[key]);
+				for (var i=0; i<menu.length;i++){
+					allType.push(menu[i].type);
+				}
+				if(allType.indexOf(dishes[key].type) == -1){
+					menu.push(dishes[key]);
+				}
+				else{
+					function find(){
+						for(k in menu){
+							if(menu[k].type == dishes[key].type){
+								return menu[k];
+							}
+						}
+					}
+					menu.pop(menu.filter(find));
+					menu.push(dishes[key]);
+				}
 			}
 	}
 
@@ -66,7 +83,7 @@ var DinnerModel = function() {
 	this.removeDishFromMenu = function(id) {
 		for(key in dishes){
 			if(dishes[key].id == id) {
-				menu.pop(dish[key]);
+				menu.pop(dishes[key]);
 			}
 		}
 	}
