@@ -46,7 +46,7 @@ var DinnerModel = function() {
 		var totalPrice = 0;
 		for (key in menu){
 			for (var i=0; i<menu[key].ingredients.length;i++){
-				totalPrice = totalPrice + menu[key].ingredients[i].price * guestNumber
+				totalPrice = totalPrice + menu[key].ingredients[i].price * guestNumber;
 			}
 		}
 		return totalPrice;
