@@ -55,4 +55,7 @@ var ExampleView = function (container, model) {
 	numberOfGuests.html("Hello World");
 	
 }
+
+
+var ExampleView = function (container, model) {
  
