@@ -6,12 +6,22 @@ var DinnerModel = function() {
 
 	var menu = [];
 
+	var guestNumber = 0;
+
     this.setNumberOfGuests = function(num) {
 		this.guestNumber = num;
 	}
 	
 	this.getNumberOfGuests = function() {
 		return this.guestNumber;
+	}
+
+	this.plusButton = function(){
+		this.guestNumber += 1; 
+	}
+
+	this.minusButton = function(){
+		this.guestNumber -= 1; 
 	}
 
 	//Returns the dish that is on the menu for selected type 
