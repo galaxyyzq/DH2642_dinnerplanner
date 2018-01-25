@@ -1,6 +1,8 @@
+body{
+	height: 100%;
+}
 .maincontent{
 	display: flex;
-	flex-direction:row;
 	align-items:stretch;
 	flex-wrap: wrap;
 }
@@ -12,6 +14,7 @@
 	background-color: #eeeeee;
 	justify-content: flex-start;
 	padding: 20px 0 20px 0;
+	height: 100%;
 
 }
 
@@ -50,6 +53,7 @@ td {
 .searchresult{
 	display: flex;
 	flex-direction:row;
+	justify-content: flex-start;
 	margin-top: 30px;
 
 }
@@ -94,4 +98,8 @@ td {
 	align-items:space-between;
 	justify-content:center;
 	flex-wrap: wrap;
+}
+
+.burgermenu{
+	padding: 30px;
 }
