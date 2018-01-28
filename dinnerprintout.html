@@ -16,11 +16,16 @@
 		<div class="col-md-12 text-center" style="padding: 40px 0 40px 0; background-color:#dddddd">
 			<h1>Dinner planner</h1>
 		</div>
-		<div class="col-md-12 dinneroverview" >
-        <h3>My dinner: 3 People</h3>
+		<div class="col-md-12 dinneroverview">
+      <div class="guestView">
+        <h3>My dinner: <span id="numberOfGuests"></span></h3>
+      </div>
         <button type="button" class="btn btn-default">Go back and edit dinner</button>
     </div>
 
+    <div class="container-fluid" id = "contentview">  
+    </div>
+    <!-- 
     <div class="col-md-12 printcontent">
       <div class="col-md-12">
         <div class="col-md-2">
@@ -50,6 +55,8 @@
         </div>
       </div>
 
+    -->
+
         
 
 
@@ -63,9 +70,17 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/model/dinnerModel.js"></script>
+    <script src="js/view/exampleView.js"></script>
+    <script src="js/view/exampleView2.js"></script>
+    <script src="js/view/dishView.js"></script>
+    <script src="js/view/menuView.js"></script>
+    <script src="js/view/menuView2.js"></script>
+    <script src="js/view/finalMenuView.js"></script>
+    <script src="js/view/guestView.js"></script>
+    <script src="js/view/dishDetailView.js"></script>
+    <script src="js/view/dishPreparation.js"></script>   
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>

@@ -26,18 +26,25 @@ var DishPreparation = function(container, model){
     	var img = document.createElement('img');
     	var src = "images/" + model.getFullMenu()[i].image;
     	img.setAttribute("src", src);
+       // class="img-responsive" alt="Responsive image" style="margin: 20px 0 20px 0;"
+        img.className = 'img-responsive'
+        img.style = 'margin: 20px 0 20px 0;'
+
         div1.appendChild(img);
         
-        var subtitle = document.createElement('DIV');
-        subtitle.className = 'sub-title';
+        var subtitle = document.createElement('H3');
+        subtitle.className = 'col-md-12';
         subtitle.innerHTML = model.getFullMenu()[i].name;
         var description = document.createElement('DIV');
         description.className = 'description6';
         description.innerHTML = model.getFullMenu()[i].description;
         div2.appendChild(subtitle);
         div2.appendChild(description);
+
+        //<div class="col-md-5" style="padding:0 50px 0 10px">
+          //<h2>LASAGNE</h2>
         
-        var preparation = document.createElement('DIV');
+        var preparation = document.createElement('H4');
         preparation.className = 'preparation';
         preparation.innerHTML = 'Preparation';
         var description2 = document.createElement('DIV');
