@@ -61,5 +61,4 @@ var ExampleView = function (container, model) {
 }
 
 
-var ExampleView = function (container, model) {
  
