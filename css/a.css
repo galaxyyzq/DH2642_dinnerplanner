@@ -59,6 +59,7 @@ td {
 
 }
 
+
 .dishpic{
 	width: 140px;
 	height: 140px;
@@ -103,4 +104,9 @@ td {
 
 .burgermenu{
 	padding: 30px;
+}
+
+.space{
+	display: flex;
+	flex-warp:warp;
 }
