@@ -22,6 +22,7 @@ var DishView = function (container, model) {
 		var img = document.createElement('img');
 		var src = "images/" + model.getAllDishes("starter")[i].image;
 		img.setAttribute("src", src);
+		img.className = "dishpic"
 
 		var divDish = document.createElement('DIV');
 		divDish.className = "dish";
