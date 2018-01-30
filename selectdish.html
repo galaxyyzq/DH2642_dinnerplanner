@@ -55,55 +55,56 @@
 
 
     <!--burgur menu-->
-    <div class="visible-xs">
-    <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid"> 
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse"
-        data-target="#example-navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">My Dinner</a>
-  </div>
-  <div class="collapse navbar-collapse" id="example-navbar-collapse">
-    <ul class="nav navbar-nav" style="padding:20px;">
+      <div class="visible-xs">
+      <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid"> 
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+          data-target="#example-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">My Dinner</a>
+    </div>
+    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+      <ul class="nav navbar-nav" style="padding:20px;">
 
-      <div class="sidebarline"> 
-        <div id="exampleView">              
-              Number of guests: <span id="numberOfGuests"></span>             
-              <div class="space separation">
+       <h4>My Dinner</h4>
+          <div class="sidebarline">
+            <span>People</span>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="numberOfGuests" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  3
+                  <span> 
                       <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-                <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-              </div>
-        </div>
-
-        </div>
-        <table class="table">
-          <tr>
-              <th>Dishname</th>
-              <th>Cost</th> 
+                      <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+                  </span>
+                </button>
+            </div>
+          </div>
+          <table class="table">
+            <tr>
+                <th>Dishname</th>
+                <th>Cost</th> 
             </tr>
-        </table>
+          </table>
+          <!--写成表格的格式-->
+                  <div id="menuView">
+                      <span id="menu">
+                          <div class="row space">
+                          </div>
+                      </span>
+                      <p style="text-align:right; margin: 10px 0 40px 0">SEK:<span id="totalCost"> </span></p>
+                  </div>
+          <button class="btn btn-primary btn-lg">Comfirm dinner</button>  
+      
 
-
-        <div id="menuView">
-           <span id="menu">
-             <div class="row space">
-               <div class="col-md-12 right">
-                  <p style="margin: 10px 0 40px 0">SEK:<span id="totalCost"></span></p>
-               </div>
-              </div>
-           </span> 
-        </div>
-        <button class="btn btn-primary btn-lg">Comfirm dinner</button>  
-
-    </ul>
-  </div>
-  </div>
-  </nav>
-  </div>
+      </ul>
+    </div>
+    </div>
+    </nav>
+    </div>
 
 			<div class="col-md-9 dishmenu"  >
 				<h4>Find a dish</h4>

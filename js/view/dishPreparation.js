@@ -1,12 +1,15 @@
 var DishPreparation = function(container, model){
     
-    var divcontent = document.createElement('div');
+    var divcontent = document.createElement('DIV');
     divcontent.class = "content";
     
 	for(var i = 0; i < model.getFullMenu().length; i++){
         
-        var div = document.createElement('div');
+        var div = document.createElement('DIV');
     	div.className ="row-place";
+        //?????????
+
+
 
     	var div1 = document.createElement('DIV');
         div1.id = 'column1';
@@ -18,6 +21,7 @@ var DishPreparation = function(container, model){
         div3.id = 'column3';
         div3.className = 'col-md-6';
         
+
         div.appendChild(div1);
         div.appendChild(div2);
         div.appendChild(div3);
@@ -33,7 +37,7 @@ var DishPreparation = function(container, model){
         div1.appendChild(img);
         
         var subtitle = document.createElement('H3');
-        subtitle.className = 'col-md-12';
+        //subtitle.className = 'dishname';
         subtitle.innerHTML = model.getFullMenu()[i].name;
         var description = document.createElement('DIV');
         description.className = 'description6';
@@ -52,8 +56,10 @@ var DishPreparation = function(container, model){
         description2.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
         div3.appendChild(preparation);
         div3.appendChild(description2);
+        divcontent.appendChild(div);    
         
-        divcontent.appendChild(div);	
+        //div.appendChild('DIV');
+
 
     }
 	
