@@ -101,8 +101,7 @@ var DinnerModel = function() {
 		var price = 0;
 		for(dish in this.getFullMenu){
 			for(key in dish.ingredients){
-				//We add to the price price*quantity of the ingredient
-				price += dish.ingredients[key].price * dish.ingredients[key].quantity;
+				price += dish.ingredients[key].price;
 			}
 		}
 		return price;
