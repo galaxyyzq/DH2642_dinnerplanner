@@ -58,6 +58,7 @@ var FinalMenuView = function(container, model) {
     //        <p>90 SEK</p>
     //  </div>
 	
+
 	var costElt = document.createElement('DIV');
 	costElt.className = "col-md-12 text-center";
 	var cost = document.createElement('H3');
@@ -67,4 +68,5 @@ var FinalMenuView = function(container, model) {
 
 	div.appendChild(costElt);
 	finalMenu.append(div);
+	
 }

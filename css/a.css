@@ -110,3 +110,21 @@ td {
 	display: flex;
 	flex-warp:warp;
 }
+
+.totalnumber{
+	display: flex;
+	flex-direction:row;
+	justify-content:space-between;
+	margin: 10px 0 10px 0;
+	align-items: center;
+	flex-warp:warp;
+
+}
+
+.finalmenu{
+	display: flex;
+}
+
+.row-place{
+	margin: 10px 0 10px 0;
+}
