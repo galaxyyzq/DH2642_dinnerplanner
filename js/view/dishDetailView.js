@@ -1,67 +1,85 @@
 var DishDetailView = function(container, model) {
-	//How do we get id ?
-	var dishDetail = container.find("#dishDetail");
-	var name = container.find("#dishName");
 
-	var title = document.createElement('h3');
-	title.innerHTML = model.getDish(3).name;
-	
 
+	//1.Middle part: Picture and description
+
+	var dishintro = document.getElementById("dishintro");
+
+	//dishname
+	var dishname = document.createElement('h2');
+	dishname.innerHTML = model.getDish(1).name;
+
+	//dish picture
 	var img = document.createElement("img");
-	var src = "images/" + model.getDish(3).image;
+	var src = "images/" + model.getDish(1).image;
 	img.setAttribute("src", src);
+	img.className = "img-responsive";
+	img.style = "margin: 20px 0 20px 0";
 
-	var description = document.createElement("DIV");
-	description.className = "space";
-    description.innerHTML = model.getDish(3).description;
+	//dish description
+	var description = document.createElement("p");
+	description.innerHTML = model.getDish(1).description;
 
-    dishDetail.prepend(description);
-    dishDetail.prepend(img);
+	dishintro.appendChild(dishname);
+	dishintro.appendChild(img);
+	dishintro.appendChild(description);
 
 
-    var numberOfGuests = container.find("#numberOfGuests");
-    numberOfGuests.html(model.getNumberOfGuests());
+	//2.Right part: ingredient detail
 
-    var ingredients = container.find("#ingredients");
+	var numberOfGuests = document.getElementById("numberOfGuests");
+	numberOfGuests.innerHTML = model.getNumberOfGuests();
 
-    var cost = container.find("#cost");
-    var dishCost = 0;
+	var getprice=0;
 
-    for(var i = 0; i < model.getDish(3).ingredients.length; i++){
-    	var line = document.createElement('DIV');
-    	line.className = "row space";
+	for(var i = 0; i < model.getDish(1).ingredients.length; i++){
 
-    	var quantity = document.createElement('DIV');
-    	quantity.className = "col-xs-2";
-    	quantity.innerHTML = (model.getDish(3).ingredients[i].quantity * model.getNumberOfGuests()) + model.getDish(3).ingredients[i].unit;
+		var table = document.getElementById("tablelist");
+		var tablerow = document.createElement('tr');
 
-    	var ingredient = document.createElement('DIV');
-    	ingredient.className = "col-xs-6";
-    	ingredient.innerHTML = model.getDish(3).ingredients[i].name;
+		var quantity = document.createElement('td');
+		quantity.innerHTML = (model.getDish(1).ingredients[i].quantity * model.getNumberOfGuests()) + " " + model.getDish(1).ingredients[i].unit;
 
-    	var sek = document.createElement('DIV');
-    	sek.className = "col-xs-2";
-    	sek.innerHTML = "SEK";
+		var name = document.createElement('td');
+		name.innerHTML = model.getDish(1).ingredients[i].name;
 
-    	var price = document.createElement('DIV');
-    	price.className = "col-xs-2 right";
-    	var ingredientPrice = model.getDish(3).ingredients[i].price * model.getDish(3).ingredients[i].quantity * model.getNumberOfGuests() ;
-    	price.innerHTML = ingredientPrice;
-    	dishCost += ingredientPrice;
+		var sek = document.createElement('td');
+		sek.innerHTML = "SEK";
 
-    	line.appendChild(quantity);
-    	line.appendChild(ingredient);
-    	line.appendChild(sek);
-    	line.appendChild(price);
+		var price = document.createElement('td');
+		price.innerHTML = model.getDish(1).ingredients[i].price * model.getDish(1).ingredients[i].quantity * model.getNumberOfGuests();
 
-    	ingredients.append(line);
-    } 
+		table.appendChild(tablerow);
+		tablerow.appendChild(quantity);
+		tablerow.appendChild(name);
+		tablerow.appendChild(sek);
+		tablerow.appendChild(price);
 
-    cost.html(dishCost);
+		// add price every loop
+		getprice=getprice+model.getDish(1).ingredients[i].price * model.getDish(1).ingredients[i].quantity * model.getNumberOfGuests();
+	}
 
-    var preparation = container.find("#preparation");
-    preparation.html("Hello World !");
+	var table = document.getElementById("tablelist");
+	var tablerow = document.createElement('tr');
 
-    name.prepend(title);
+	var td1 = document.createElement("td");
+	var td2 = document.createElement("td");
+
+
+	var addmenubutton = document.createElement("button");
+	addmenubutton.className = "btn btn-default";
+	addmenubutton.innerHTML = "Add to menu";
+
+	var td3 = document.createElement("td");
+	var td4 = document.createElement("td");
+	td3.innerHTML = "SEK";
+	td4.innerHTML = getprice;
+
+	table.appendChild(tablerow);
+	tablerow.appendChild(td1);
+	td1.appendChild(addmenubutton);
+	tablerow.appendChild(td2);
+	tablerow.appendChild(td3);
+	tablerow.appendChild(td4);
 
 }
