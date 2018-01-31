@@ -17,7 +17,6 @@ var MenuView = function (container, model) {
 		var price = 0;
 
 		for(key in model.getFullMenu()[i].ingredients){
-				//We add to the price price*quantity of the ingredient
 				price += model.getFullMenu()[i].ingredients[key].price;
 		}
 		

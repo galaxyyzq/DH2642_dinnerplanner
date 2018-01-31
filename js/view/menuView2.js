@@ -6,7 +6,7 @@ var MenuView2 = function (container, model) {
 
 	for (var i = model.getFullMenu().length - 1; i>= 0; i--) {
 		var divRow = document.createElement('DIV');
-		divRow.className = "row space";
+		divRow.className = "row-space";
 
 		var divCol1 = document.createElement('DIV');
 		divCol1.className = "col-xs-8";
@@ -17,7 +17,6 @@ var MenuView2 = function (container, model) {
 		var price = 0;
 
 		for(key in model.getFullMenu()[i].ingredients){
-				//We add to the price price*quantity of the ingredient
 				price += model.getFullMenu()[i].ingredients[key].price;
 		}
 		
