@@ -1,24 +1,80 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
-    var menu = [3,100];
-    var numofguests = 3;
+    var menu = [{
+		'id':3,
+		'name':'Baked Brie with Peaches',
+		'type':'starter',
+		'image':'bakedbrie.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'round Brie cheese',
+			'quantity':10,
+			'unit':'g',
+			'price':8
+			},{
+			'name':'raspberry preserves',
+			'quantity':15,
+			'unit':'g',
+			'price':10
+			},{
+			'name':'peaches',
+			'quantity':1,
+			'unit':'',
+			'price':4
+			}]
+		}, {
+		'id':1,
+		'name':'French toast',
+		'type':'starter',
+		'image':'toast.jpg',
+		'description':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
+		'ingredients':[{ 
+			'name':'eggs',
+			'quantity':0.5,
+			'unit':'',
+			'price':10
+			},{
+			'name':'milk',
+			'quantity':30,
+			'unit':'ml',
+			'price':6
+			},{
+			'name':'brown sugar',
+			'quantity':7,
+			'unit':'g',
+			'price':1
+			},{
+			'name':'ground nutmeg',
+			'quantity':0.5,
+			'unit':'g',
+			'price':12
+			},{
+			'name':'white bread',
+			'quantity':2,
+			'unit':'slices',
+			'price':2
+			}]
+		}];
+    var numofguests = 2;
 	
     //TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
     
-	this.setNumberOfGuests = function(num) {	
+	this.setNumberOfGuests = function(num) {
+		
         numofguests = num;
 	}
 	
 	this.getNumberOfGuests = function() {
+	
          return numofguests; 
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		for (i in this.getFullMenu){
+		for (dishes in this.getFullMenu){
             if(dishes.type == type)
-            return dishes[i]];  
+            return dishes.type;  
         }
 	}
 
@@ -45,7 +101,8 @@ var DinnerModel = function() {
 		var price = 0;
 		for(dish in this.getFullMenu){
 			for(key in dish.ingredients){
-				price += dish.ingredients[key].price;
+				//We add to the price price*quantity of the ingredient
+				price += dish.ingredients[key].price * dish.ingredients[key].quantity;
 			}
 		}
 		return price;
@@ -77,7 +134,6 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	//???
 	this.getAllDishes = function (type,filter) {
 	  return dishes.filter(function(dish) {
 		var found = true;
