@@ -20,13 +20,13 @@
 
       <!--menu-->
       <div class="col-md-3 sidebar hidden-xs">
-
         <h4>My Dinner</h4>
+        <!-- Begin this part can be use again -->
         <div class="sidebarline">
           <span>People</span>
-          <div class="exampleView">
-            <button class="btn btn-default dropdown-toggle" type="button" id="numberOfGuests2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              3
+          <div>
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span id="numberOfGuests"></span>
               <span>
                 <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
                 <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
@@ -34,21 +34,19 @@
             </button>
           </div>
         </div>
-        <table class="table">
+        <div id="menuView">
+        <table class="table" id="menutable">
           <tr>
             <th>Dishname</th>
             <th>Cost</th>
           </tr>
         </table>
-        <!--写成表格的格式-->
-        <div id="menuView">
-          <span id="menu">
-            <div class="row space">
-            </div>
-          </span>
-          <p style="text-align:right; margin: 10px 0 40px 0">SEK:<span id="totalCost"> </span></p>
+        <div class="text-center">
+            <p style="text-align:right;">SEK: <span id="totalcost"></span></p>
+            <button class="btn btn-primary btn-lg">Comfirm dinner</button>
         </div>
-        <button class="btn btn-primary btn-lg">Comfirm dinner</button>
+      </div>
+      <!-- End thispart -->
       </div>
 
 
@@ -67,13 +65,12 @@
           </div>
           <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav" style="padding:20px;">
-
-              <h4>My Dinner</h4>
+              <!-- Begin this part can be use again -->
               <div class="sidebarline">
                 <span>People</span>
-                <div class="exampleView2">
+                <div>
                   <button class="btn btn-default dropdown-toggle" type="button" id="numberOfGuests2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    3
+                    <span id="numberOfGuests"></span>
                     <span>
                       <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
                       <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
@@ -81,31 +78,28 @@
                   </button>
                 </div>
               </div>
-              <table class="table">
+              <div id="menuView2">
+              <table class="table" id="menutable">
                 <tr>
                   <th>Dishname</th>
                   <th>Cost</th>
                 </tr>
               </table>
-              <!--写成表格的格式-->
-              <div id="menuView2">
-                <span id="menu2">
-                  <div class="row space">
-                  </div>
-                </span>
-                <p style="text-align:right; margin: 10px 0 40px 0">SEK:<span id="totalCost2"> </span></p>
+              <div class="text-center">
+                  <p style="text-align:right;">SEK: <span id="totalcost"></span></p>
+                  <button class="btn btn-primary btn-lg">Comfirm dinner</button>
               </div>
-              <button class="btn btn-primary btn-lg">Comfirm dinner</button>
-              <!-- Change end -->
+            </div>
+            <!-- End thispart -->
             </ul>
           </div>
         </div>
       </nav>
     </div>
-    <!-- End of burgur menu navigation-->
+    <!-- End burgur menu navigation-->
 
     <!-- Content area: (1)Middle part (2)Right part -->
-    <div class="col-md-9 dishdetail" style="padding:0" >
+    <div class="col-md-9 dishdetail" style="padding:0" id="dishDetailView">
       <!-- Middle part: Picture and description -->
       <div class="col-md-6" style="padding:20px">
         <div id='dishintro'></div>
@@ -114,10 +108,11 @@
 
       <!-- Right part: ingredient detail -->
       <div class="col-md-6 ingrelist">
-        <h4>Ingredient for <span id="numberOfGuests"></span> People</h4>
+        <h4>Ingredient for <span id="numberOfGuests"></span>People</h4>
         <table class="table" id="tablelist"></table>
       </div>
     </div>
+    <!-- End content area -->
   </div>
 
 

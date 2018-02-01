@@ -1,39 +1,48 @@
 var DishView = function (container, model) {
-	
-	var dishes = container.find("#dish");
-	var div = document.createElement('DIV');
-	var index = -1;
+		var dishes = container.find("#dish");
+	    var div = document.createElement('DIV');
 
-	for(var i = 0; i < model.getAllDishes("starter").length; i++){
-		if (i%3 == 0){
-			var row = document.createElement('DIV');
-			row.className = "row space";
-			div.appendChild(row);
-			index += 1;
-		}
+	    for(i = 0; i < model.getFullMenu().length; i++){
+	    	var col = document.createElement('DIV');
+	    	col.className = "col-sm-4";
 
-		var column = document.createElement('DIV');
-		column.className = "col-md-4";
+	    	var thumbnail = document.createElement('DIV');
+	    	thumbnail.className = "thumbnail";
+	    	var img = document.createElement('img');
+	    	img.className = "dishpic";
+	    	var src = "images/" + model.getFullMenu()[i].image;
+		    img.setAttribute("src", src);
 
-		var divName = document.createElement('DIV');
-		divName.className ="name";
-		divName.innerHTML = model.getAllDishes("starter")[i].name;
+		    var divD = document.createElement('DIV');
+		    divD.className = "dish";
+		    divD.appendChild(img);
+		
+		    var name = document.createElement('DIV');
+		    name.className = "caption text-center";
+		    var h4name = document.createElement('H4');
+		    h4name.innerHTML = model.getFullMenu()[i].name;
+		    name.appendChild(h4name);
 
-		var img = document.createElement('img');
-		var src = "images/" + model.getAllDishes("starter")[i].image;
-		img.setAttribute("src", src);
-		img.className = "dishpic"
 
-		var divDish = document.createElement('DIV');
-		divDish.className = "dish";
-		divDish.appendChild(img);
-		divDish.appendChild(divName);
+		  //  innerHTML = "<p><a href='#' class='btn btn-defult' role='button'>Add</a> </p>";
+		  // lack of a button
+		    divD.appendChild(name);
 
-		column.appendChild(divDish);
-		div.children[index].appendChild(column);
+		    thumbnail.appendChild(divD);
+            col.appendChild(thumbnail);
+	    	div.appendChild(col);
+	    }
 
-	}
-	
-	dishes.append(div);
-	
+	    //origin HTML
+	    //<div class="col-sm-4">
+		//				<div class="thumbnail">
+      	//					<img src="images/meatballs.jpg" class="dishpic">
+      	//					<div class="caption text-center">
+        //						<h4>Meatballs</h4>
+        //						<p><a href="#" class="btn btn-defult" role="button">Add</a> </p>
+      	//					</div>
+    	//				</div>
+    	//			</div>
+
+	dishes.append(div);	
 }

@@ -1,34 +1,39 @@
 var MenuView = function (container, model) {
 
-	var menu = container.find("#menu");
-	var totalCost = container.find("#totalCost");
-	var cost = 0.00;
+	var menu = document.getElementById("menutable");
+	var dishprice=[];
+	var totalcost2=0;
 
-	for (var i = model.getFullMenu().length - 1; i>= 0; i--) {
-		var divRow = document.createElement('DIV');
-		divRow.className = "row space";
+	for (var i=0; i < model.getFullMenu().length; i++) {
+		/* create table like this:
+		<tr>
+			<td>dishname</td>
+			<td>cost</td>
+		</tr>
+		*/
 
-		var divCol1 = document.createElement('DIV');
-		divCol1.className = "col-xs-8";
-		divCol1.innerHTML = model.getFullMenu()[i].name;
+		var dishrow = document.createElement("tr");
 
-		var divCol2 = document.createElement('DIV');
-		divCol2.className = "col-xs-4 right";
-		var price = 0;
+		var dishname = document.createElement("td");
+		dishname.innerHTML = model.getFullMenu()[i].name;
 
-		for(key in model.getFullMenu()[i].ingredients){
-				price += model.getFullMenu()[i].ingredients[key].price;
+		//calculate price of dish[i]
+		for(var j = 0; j < model.getFullMenu()[i].ingredients.length; j++){
+			dishprice[i] = model.getFullMenu()[i].ingredients[j].price * model.getFullMenu()[i].ingredients[j].quantity * model.getNumberOfGuests();
 		}
-		
-		cost += price;
 
-		divCol2.innerHTML = price;
+		totalcost2=totalcost2+dishprice[i];
 
-		divRow.appendChild(divCol1);
-		divRow.appendChild(divCol2);
+		var cost = document.createElement("td");
+		cost.innerHTML = dishprice[i];
 
-		menu.prepend(divRow);
+		menu.appendChild(dishrow);
+		dishrow.appendChild(dishname);
+		dishrow.appendChild(cost);
 	}
-	totalCost.html(cost);
+
+
+	var totalCost = document.getElementById("totalcost");
+	totalcost.innerHTML=totalcost2;
 
 }
