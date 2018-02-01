@@ -27,6 +27,7 @@ var DishDetailView = function(container, model) {
 
 	//2.Right part: ingredient detail
 
+	//id only use once? so this part should change
 	var numberOfGuests = document.getElementById("numberOfGuests");
 	numberOfGuests.innerHTML = model.getNumberOfGuests();
 

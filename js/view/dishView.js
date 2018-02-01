@@ -1,4 +1,4 @@
-var DishView = function (container, model) {
+ var DishView = function (container, model) {
 	
 	var dishes = container.find("#dish");
 	var div = document.createElement('DIV');

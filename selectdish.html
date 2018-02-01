@@ -19,92 +19,84 @@
 		<div class="col-md-12" style="padding:0px;" >
 
       <!--menu-->
-			<div class="col-sm-3 sidebar hidden-xs">
-
-				<h4>My Dinner</h4>
-				<div class="sidebarline">	
-        <div id="exampleView">              
-              Number of guests: <span id="numberOfGuests"></span>             
-              <div class="space separation">
-                      <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+      <div class="col-md-3 sidebar hidden-xs">
+        <h4>My Dinner</h4>
+        <!-- Begin this part can be use again -->
+        <div class="sidebarline">
+          <span>People</span>
+          <div>
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span id="numberOfGuests"></span>
+              <span>
+                <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
                 <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-              </div>
+              </span>
+            </button>
+          </div>
         </div>
-
-        </div>
-				<table class="table">
-					<tr>
-    					<th>Dishname</th>
-    					<th>Cost</th> 
-  					</tr>
-				</table>
-
-
         <div id="menuView">
-           <span id="menu">
-             <div class="row space">
-               <div class="col-md-12 right">
-                  <p style="margin: 10px 0 40px 0">SEK:<span id="totalCost"></span></p>
-               </div>
-              </div>
-           </span> 
+        <table class="table" id="menutable">
+          <tr>
+            <th>Dishname</th>
+            <th>Cost</th>
+          </tr>
+        </table>
+        <div class="text-center">
+            <p style="text-align:right;">SEK: <span id="totalcost"></span></p>
+            <button class="btn btn-primary btn-lg">Comfirm dinner</button>
         </div>
-				<button class="btn btn-primary btn-lg">Comfirm dinner</button>  
+      </div>
+      <!-- End thispart -->
       </div>
 
 
-
-    <!--burgur menu-->
+      <!--burgur menu-->
       <div class="visible-xs">
-      <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid"> 
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse"
-          data-target="#example-navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">My Dinner</a>
-    </div>
-    <div class="collapse navbar-collapse" id="example-navbar-collapse">
-      <ul class="nav navbar-nav" style="padding:20px;">
-
-       <h4>My Dinner</h4>
-          <div class="sidebarline">
-            <span>People</span>
-            <div class="exampleView2">
-                <button class="btn btn-default dropdown-toggle" type="button" id="numberOfGuests2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  3
-                  <span> 
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse"
+              data-target="#example-navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">My Dinner</a>
+          </div>
+          <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav" style="padding:20px;">
+              <!-- Begin this part can be use again -->
+              <div class="sidebarline">
+                <span>People</span>
+                <div>
+                  <button class="btn btn-default dropdown-toggle" type="button" id="numberOfGuests2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span id="numberOfGuests"></span>
+                    <span>
                       <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
                       <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-                  </span>
-                </button>
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div id="menuView2">
+              <table class="table" id="menutable">
+                <tr>
+                  <th>Dishname</th>
+                  <th>Cost</th>
+                </tr>
+              </table>
+              <div class="text-center">
+                  <p style="text-align:right;">SEK: <span id="totalcost"></span></p>
+                  <button class="btn btn-primary btn-lg">Comfirm dinner</button>
+              </div>
             </div>
+            <!-- End thispart -->
+            </ul>
           </div>
-          <table class="table">
-            <tr>
-                <th>Dishname</th>
-                <th>Cost</th> 
-            </tr>
-          </table>
-          <!--写成表格的格式-->
-                  <div id="menuView2">
-                      <span id="menu2">
-                          <div class="row space">
-                          </div>
-                      </span>
-                      <p style="text-align:right; margin: 10px 0 40px 0">SEK:<span id="totalCost2"> </span></p>
-                  </div>
-          <button class="btn btn-primary btn-lg">Comfirm dinner</button>  
-      
-
-      </ul>
+        </div>
+      </nav>
     </div>
-    </div>
-    </nav>
-    </div>
+    <!-- End burgur menu navigation-->
 
 			<div class="col-md-9 dishmenu"  >
 				<h4>Find a dish</h4>
@@ -118,8 +110,8 @@
                 <option value="dessert">dessert</option>
               </select>
 					</div>
-      				
-     				<button class="btn btn-primary btn-lg" style="margin: 0 0 0 50px">Search</button> 
+
+     				<button class="btn btn-primary btn-lg" style="margin: 0 0 0 50px">Search</button>
 
 				</div>
         <div class="col-md-9">
@@ -127,7 +119,7 @@
           <span id="dish"></span>
         </div>
 
-			</div>			
+			</div>
 		</div>
 
 
@@ -149,7 +141,7 @@
         <script src="js/view/finalMenuView.js"></script>
         <script src="js/view/guestView.js"></script>
         <script src="js/view/dishDetailView.js"></script>
-        <script src="js/view/dishPreparation.js"></script> 
+        <script src="js/view/dishPreparation.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>
