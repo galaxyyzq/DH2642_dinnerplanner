@@ -42,7 +42,7 @@ var DishView = function (container, model) {
         //						<p><a href="#" class="btn btn-defult" role="button">Add</a> </p>
       	//					</div>
     	//				</div>
-    	//			</div>
+    	//			</div>	
+	dishes.append(div);
 
-	dishes.append(div);	
 }
