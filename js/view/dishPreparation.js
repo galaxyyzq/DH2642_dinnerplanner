@@ -1,9 +1,9 @@
 var DishPreparation = function(container, model){
 
+var contentview = document.getElementById("contentview2");
 
   for(var i = 0; i < model.getFullMenu().length; i++){
 
-    var contentview = document.getElementById('contentview')
     var onedishcontent = document.createElement('div');
     onedishcontent.className = "col-md-12 row";
 

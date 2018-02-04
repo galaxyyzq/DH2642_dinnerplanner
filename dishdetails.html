@@ -19,7 +19,7 @@
     <div class="col-md-12 container-fluid" style="padding:0px;" >
 
       <!--menu-->
-      <div class="col-md-3 sidebar hidden-xs">
+      <div class="col-sm-3 sidebar hidden-xs">
         <h4>My Dinner</h4>
         <!-- Begin this part can be use again -->
         <div class="sidebarline">
@@ -35,12 +35,15 @@
           </div>
         </div>
         <div id="menuView">
-        <table class="table" id="menutable">
-          <tr>
-            <th>Dishname</th>
-            <th>Cost</th>
-          </tr>
-        </table>
+            <table class="table" >
+              <tbody id="menutable">
+                <tr>
+                  <th>Dishname</th>
+                  <th>Cost</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         <div class="text-center">
             <p style="text-align:right;">SEK: <span id="totalcost"></span></p>
             <button class="btn btn-primary btn-lg">Comfirm dinner</button>

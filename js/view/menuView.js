@@ -1,6 +1,8 @@
 var MenuView = function (container, model) {
 
 	var menu = document.getElementById("menutable");
+	var totalCost = document.getElementById("totalcost");
+
 	var dishprice=[];
 	var totalcost2=0;
 
@@ -27,13 +29,13 @@ var MenuView = function (container, model) {
 		var cost = document.createElement("td");
 		cost.innerHTML = dishprice[i];
 
-		menu.appendChild(dishrow);
 		dishrow.appendChild(dishname);
 		dishrow.appendChild(cost);
+		menu.appendChild(dishrow);
+
+
 	}
 
-
-	var totalCost = document.getElementById("totalcost");
 	totalcost.innerHTML=totalcost2;
 
 }
