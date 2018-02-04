@@ -13,6 +13,7 @@ var MenuView = function (container, model) {
 			<td>cost</td>
 		</tr>
 		*/
+		dishprice[i]=0;
 
 		var dishrow = document.createElement("tr");
 
@@ -21,7 +22,7 @@ var MenuView = function (container, model) {
 
 		//calculate price of dish[i]
 		for(var j = 0; j < model.getFullMenu()[i].ingredients.length; j++){
-			dishprice[i] = model.getFullMenu()[i].ingredients[j].price * model.getFullMenu()[i].ingredients[j].quantity * model.getNumberOfGuests();
+			dishprice[i] += model.getFullMenu()[i].ingredients[j].price * model.getNumberOfGuests();
 		}
 
 		totalcost2=totalcost2+dishprice[i];

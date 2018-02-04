@@ -2,7 +2,7 @@ var DishView = function (container, model) {
 		var dishes = container.find("#dish");
 	    var div = document.createElement('DIV');
 
-	    for(i = 0; i < model.getFullMenu().length; i++){
+	    for(i = 0; i < model.getSelectedDish('starter').length; i++){
 	    	var col = document.createElement('DIV');
 	    	col.className = "col-sm-4";
 
@@ -10,7 +10,7 @@ var DishView = function (container, model) {
 	    	thumbnail.className = "thumbnail";
 	    	var img = document.createElement('img');
 	    	img.className = "dishpic";
-	    	var src = "images/" + model.getFullMenu()[i].image;
+	    	var src = "images/" + model.getSelectedDish('starter')[i].image;
 		    img.setAttribute("src", src);
 
 		    var divD = document.createElement('DIV');
@@ -20,7 +20,7 @@ var DishView = function (container, model) {
 		    var name = document.createElement('DIV');
 		    name.className = "caption text-center";
 		    var h4name = document.createElement('H4');
-		    h4name.innerHTML = model.getFullMenu()[i].name;
+		    h4name.innerHTML = model.getSelectedDish('starter')[i].name;
 		    name.appendChild(h4name);
 
 
