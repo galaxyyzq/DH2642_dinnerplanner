@@ -32,11 +32,11 @@ var MenuView = function (container, model) {
 
 		dishrow.appendChild(dishname);
 		dishrow.appendChild(cost);
-		menu.appendChild(dishrow);
+		menu.append(dishrow);
 
 
 	}
 
-	totalcost.innerHTML=totalcost2;
+	totalCost.innerHTML = totalcost2;
 
 }

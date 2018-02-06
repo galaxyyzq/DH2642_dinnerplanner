@@ -1,6 +1,5 @@
 var FinalMenuView = function(container, model) {
 	var finalMenu = container.find("#finalMenu");
-	var totalCost = container.find("#totalCost");
 
 	var div = document.createElement('DIV');
 	div.className ="col-md-12 dishoverview";

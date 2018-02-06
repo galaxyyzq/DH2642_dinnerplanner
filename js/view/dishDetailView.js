@@ -4,6 +4,7 @@ var DishDetailView = function(container, model) {
 	//1.Middle part: Picture and description
 
 	var dishintro = container.find("#dishintro");
+	var div = document.createElement('DIV');
 
 	//dishname
 	var dishname = document.createElement('h2');
@@ -20,9 +21,10 @@ var DishDetailView = function(container, model) {
 	var description = document.createElement("p");
 	description.innerHTML = model.getDish(1).description;
 
-	dishintro.appendChild(dishname);
-	dishintro.appendChild(img);
-	dishintro.appendChild(description);
+	div.appendChild(dishname);
+	div.appendChild(img);
+	div.appendChild(description);
+	dishintro.append(div);
 
 
 	//2.Right part: ingredient detail
@@ -33,9 +35,11 @@ var DishDetailView = function(container, model) {
 
 	var getprice=0;
 
+
 	for(var i = 0; i < model.getDish(1).ingredients.length; i++){
 
-		var table = document.getElementById("tablelist");
+		var table = container.find("#tablelist");
+		var tablediv = document.createElement('DIV');
 		var tablerow = document.createElement('tr');
 
 		var quantity = document.createElement('td');
@@ -50,7 +54,7 @@ var DishDetailView = function(container, model) {
 		var price = document.createElement('td');
 		price.innerHTML = model.getDish(1).ingredients[i].price * model.getDish(1).ingredients[i].quantity * model.getNumberOfGuests();
 
-		table.appendChild(tablerow);
+		tablediv.appendChild(tablerow);
 		tablerow.appendChild(quantity);
 		tablerow.appendChild(name);
 		tablerow.appendChild(sek);
@@ -58,9 +62,11 @@ var DishDetailView = function(container, model) {
 
 		// add price every loop
 		getprice=getprice+model.getDish(1).ingredients[i].price * model.getDish(1).ingredients[i].quantity * model.getNumberOfGuests();
+		table.append(tablediv);
 	}
 
-	var table = document.getElementById("tablelist");
+	var table = container.find("#tablelist");
+	var tablediv = document.createElement('DIV');
 	var tablerow = document.createElement('tr');
 
 	var td1 = document.createElement("td");
@@ -76,11 +82,13 @@ var DishDetailView = function(container, model) {
 	td3.innerHTML = "SEK";
 	td4.innerHTML = getprice;
 
-	table.appendChild(tablerow);
+	tablediv.appendChild(tablerow);
 	tablerow.appendChild(td1);
 	td1.appendChild(addmenubutton);
 	tablerow.appendChild(td2);
 	tablerow.appendChild(td3);
 	tablerow.appendChild(td4);
+	table.append(tablediv);
 
 }
+
