@@ -1,7 +1,6 @@
-var DishPreparation = function(container, model){
+var Dinnerprintoutview = function(container, model){
 
-var contentview = container.find("#contentview2");
-var div = document.createElement('DIV');
+var contentview = document.createElement('div');
 
   for(var i = 0; i < model.getFullMenu().length; i++){
 
@@ -29,13 +28,13 @@ var div = document.createElement('DIV');
 
     //create preparation column
     var precolumn = document.createElement('div');
-    precolumn.className = "col-md-2";
+    precolumn.className = "col-md-4";
     var title2 = document.createElement('h4');
     title2.innerHTML = "Preparation";
     var preparation = document.createElement('p');
     preparation.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
 
-    div.appendChild(onedishcontent);
+    contentview.appendChild(onedishcontent);
 
     onedishcontent.appendChild(imgcolumn);
     imgcolumn.appendChild(img);
@@ -49,5 +48,5 @@ var div = document.createElement('DIV');
     precolumn.appendChild(preparation);
 
   }
-    contentview.append(div);
+    container.append(contentview);
 }

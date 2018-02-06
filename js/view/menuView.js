@@ -2,6 +2,10 @@ var MenuView = function (container, model) {
 
 	var menu = container.find("#menutable");
 	var totalCost = container.find("#totalcost");
+	var guestnumbervalue = model.getNumberOfGuests();
+
+	//document.getElementById("guestnumber").innerHTML = guestnumbervalue;
+	container.find("#guestnumber").html(guestnumbervalue);
 
 	var dishprice=[];
 	var totalcost2=0;
@@ -37,6 +41,6 @@ var MenuView = function (container, model) {
 
 	}
 
-	totalCost.innerHTML = totalcost2;
+	totalCost.html(totalcost2);
 
 }
