@@ -4,10 +4,8 @@ $(function() {
 
 	// And create the instance of ExampleView
 	var exampleView = new ExampleView($("#exampleView"), model);
-	var exampleView2 = new ExampleView2($("#exampleView2"), model);
 	var dishView = new DishView($("#dishView"), model);
 	var menuView = new MenuView($("#menuView"), model);
-	//var menuView2 = new MenuView($("#menuView2"), model);
 	var finalMenuView = new FinalMenuView($("#finalMenuView"), model);
 	var guestView = new GuestView($(".guestView"), model);
 	var dishDetailView = new DishDetailView($("#dishDetailView"), model);

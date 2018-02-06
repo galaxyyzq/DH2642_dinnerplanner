@@ -1,7 +1,7 @@
 var MenuView = function (container, model) {
 
-	var menu = document.getElementById("menutable");
-	var totalCost = document.getElementById("totalcost");
+	var menu = container.find("#menutable");
+	var totalCost = container.find("#totalcost");
 
 	var dishprice=[];
 	var totalcost2=0;

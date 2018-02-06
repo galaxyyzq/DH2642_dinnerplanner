@@ -3,7 +3,7 @@ var DishDetailView = function(container, model) {
 
 	//1.Middle part: Picture and description
 
-	var dishintro = document.getElementById("dishintro");
+	var dishintro = container.find("#dishintro");
 
 	//dishname
 	var dishname = document.createElement('h2');
@@ -28,7 +28,7 @@ var DishDetailView = function(container, model) {
 	//2.Right part: ingredient detail
 
 	//id only use once? so this part should change
-	var numberOfGuests = document.getElementById("numberOfGuests");
+	var numberOfGuests = container.find("#numberOfGuests");
 	numberOfGuests.innerHTML = model.getNumberOfGuests();
 
 	var getprice=0;

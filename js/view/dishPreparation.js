@@ -1,6 +1,6 @@
 var DishPreparation = function(container, model){
 
-var contentview = document.getElementById("contentview2");
+var contentview = container.find("#contentview2");
 
   for(var i = 0; i < model.getFullMenu().length; i++){
 
