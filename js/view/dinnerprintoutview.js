@@ -1,13 +1,22 @@
 var Dinnerprintoutview = function(container, model){
 
-var contentview = document.createElement('div');
+  //Display guestnumber
+  var guestnumbernode = document.createElement('span');
+  var guestnumber = container.find(".numberOfGuests");
+  var guestnumbervalue = model.getNumberOfGuests();
+  guestnumber.append(guestnumbernode);
+  guestnumbernode.innerHTML = guestnumbervalue;
+
+
+
+  var contentview = document.createElement('div');
 
   for(var i = 0; i < model.getFullMenu().length; i++){
 
     var onedishcontent = document.createElement('div');
     onedishcontent.className = "col-md-12 row";
 
-
+    
     //Create img column
     var imgcolumn = document.createElement('div');
     imgcolumn.className ="col-md-2";
@@ -48,5 +57,6 @@ var contentview = document.createElement('div');
     precolumn.appendChild(preparation);
 
   }
-    container.append(contentview);
+  var printcontent = container.find(".printcontent");
+  printcontent.append(contentview);
 }

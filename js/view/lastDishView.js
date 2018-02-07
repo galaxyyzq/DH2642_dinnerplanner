@@ -1,6 +1,14 @@
-var FinalMenuView = function(container, model) {
+var LastDishView = function(container, model) {
 	var finalMenu = container.find("#finalMenu");
 
+	//Display guestnumber
+	var guestnumbernode = document.createElement('span');
+	var guestnumber = container.find(".numberOfGuests");
+	var guestnumbervalue = model.getNumberOfGuests();
+	guestnumber.append(guestnumbernode);
+	guestnumbernode.innerHTML = guestnumbervalue;
+
+	//display other content
 	var div = document.createElement('DIV');
 	div.className ="col-md-12 dishoverview";
 
@@ -22,13 +30,13 @@ var FinalMenuView = function(container, model) {
 		col.appendChild(img);
 
 		var divText = document.createElement('DIV');
-        divText.className ="caption text-center";
+		divText.className ="caption text-center";
 
-        var divName = document.createElement('DIV');
-        divName.innerHTML = model.getFullMenu()[i].name;
-        divText.appendChild(divName);
+		var divName = document.createElement('DIV');
+		divName.innerHTML = model.getFullMenu()[i].name;
+		divText.appendChild(divName);
 
- 		for(var j = 0; j < model.getFullMenu()[i].ingredients.length; j++){
+		for(var j = 0; j < model.getFullMenu()[i].ingredients.length; j++){
 			cost += model.getFullMenu()[i].ingredients[j].price * model.getNumberOfGuests();
 		}
 
@@ -41,7 +49,7 @@ var FinalMenuView = function(container, model) {
 
 		div.appendChild(col);
 
-}
+	}
 
 	var costAll = document.createElement('DIV');
 	costAll.className = "col-md-12 text-center";
@@ -50,10 +58,10 @@ var FinalMenuView = function(container, model) {
 	costNumber.innerHTML = "Total： " + totalCost + " SEK";
 	costAll.appendChild(costNumber);
 
-    div.appendChild(costAll);
+	div.appendChild(costAll);
 
 	finalMenu.append(div);
-	
+
 }
 
 //original HTML

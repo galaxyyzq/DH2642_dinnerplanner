@@ -13,8 +13,8 @@ var MenuView = function (container, model) {
 	for (var i=0; i < model.getFullMenu().length; i++) {
 		/* create table like this:
 		<tr>
-			<td>dishname</td>
-			<td>cost</td>
+		<td>dishname</td>
+		<td>cost</td>
 		</tr>
 		*/
 		dishprice[i]=0;
