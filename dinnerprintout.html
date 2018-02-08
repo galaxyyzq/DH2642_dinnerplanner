@@ -11,19 +11,22 @@
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
 </head>
-<body id="contentview">
+<body>
   <div class="container-fluid">
     <div class="col-md-12 text-center" style="padding: 40px 0 40px 0; background-color:#dddddd">
       <h1>Dinner planner</h1>
     </div>
-    <div class="col-md-12 dinneroverview">
-      <div>
-        <h3>My dinner: <span class="numberOfGuests"></span></h3>
+    
+    <div id="contentview">
+      <div class="col-md-12 dinneroverview">
+        <div>
+          <h3>My dinner: <span class="numberOfGuests"></span></h3>
+        </div>
+        <button type="button" class="btn btn-default">Go back and edit dinner</button>
       </div>
-      <button type="button" class="btn btn-default">Go back and edit dinner</button>
-    </div>
 
-    <div class="container-fluid col-md-12 printcontent">
+      <div class="container-fluid col-md-12 printcontent">
+      </div>
     </div>
   </div>
 

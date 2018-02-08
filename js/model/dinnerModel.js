@@ -1,7 +1,7 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
-    var guestNumber = 2;
+    var guestNumber = 3;
     var menu = [1,100,202];
 
   //TODO Lab 1 implement the data structure that will hold number of guest
