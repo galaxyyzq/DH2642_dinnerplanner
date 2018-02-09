@@ -1,9 +1,14 @@
 var LastDishView = function(container, model) {
-	var finalMenu = container.find("#finalMenu");
+
+var finalMenu = container.find("#finalMenu");
+var guestnumber = container.find(".numberOfGuests");
+
+var loadLastDishView = function(){
+
+	finalMenu.html("");
 
 	//Display guestnumber
 	var guestnumbernode = document.createElement('span');
-	var guestnumber = container.find(".numberOfGuests");
 	var guestnumbervalue = model.getNumberOfGuests();
 	guestnumber.append(guestnumbernode);
 	guestnumbernode.innerHTML = guestnumbervalue;
@@ -61,11 +66,21 @@ var LastDishView = function(container, model) {
 	div.appendChild(costAll);
 
 	finalMenu.append(div);
+}
+//End loadLastDishView function
+
+this.update = function() {
+	loadLastDishView();
+}
+
+model.addObserver(this);
+
+loadLastDishView();
 
 }
 
-//original HTML
-//<div class="col-md-12 dishoverview" >
+// original HTML
+// <div class="col-md-12 dishoverview" >
 //        <div class="thumbnail" style="margin: 0 10px 0 10px">
 //              <img src="images/meatballs.jpg" class="dishpic">
 //              <div class="caption text-center">

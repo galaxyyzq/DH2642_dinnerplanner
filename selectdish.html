@@ -24,12 +24,11 @@
         <!-- Begin this part can be use again -->
         <div class="sidebarline">
           <span>People</span>
-          <div>
-
-            <span id="numberOfGuests"></span>
+          <div class="exampleView">
+            <span class="numberOfGuests"></span>
             <span>
-              <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-              <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+              <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+              <button class="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
             </span>
           </div>
         </div>
@@ -67,14 +66,12 @@
               <!-- Begin this part can be use again -->
               <div class="sidebarline">
                 <span>People</span>
-                <div>
-                  <button class="btn btn-default dropdown-toggle" type="button" id="numberOfGuests2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <span id="numberOfGuests"></span>
+                <div class="exampleView">
+                    <span class="numberOfGuests"></span>
                     <span>
-                      <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-                      <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+                      <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+                      <button class="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
                     </span>
-                  </button>
                 </div>
               </div>
               <div id="menuView2">
@@ -132,11 +129,12 @@
     <!-- The application JavaScript code -->
     <script src="js/model/dinnerModel.js"></script>
     <script src="js/view/exampleView.js"></script>
+    <script scr="js/ctrl/ExampleViewController.js"></script>
     <script src="js/view/dishView.js"></script>
     <script src="js/view/menuView.js"></script>
     <script src="js/view/lastDishView.js"></script>
     <script src="js/view/dishDetailView.js"></script>
-    <script src="js/view/dishPreparation.js"></script>
+    <script src="js/view/dinnerprintoutview.js"></script>
     <script src="js/app.js"></script>
     <!-- TODO: Here you should include JS code for your other views -->
   </body>

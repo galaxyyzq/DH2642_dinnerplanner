@@ -24,12 +24,11 @@
         <!-- Begin this part can be use again -->
         <div class="sidebarline">
           <span>People</span>
-          <div>
-
-            <span id="guestnumber"></span>
+          <div class="exampleView">
+            <span class="numberOfGuests"></span>
             <span>
-              <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-              <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+              <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+              <button class="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
             </span>
 
           </div>
@@ -71,14 +70,11 @@
               <!-- Begin this part can be use again -->
               <div class="sidebarline">
                 <span>People</span>
-                <div>
-                  <button class="btn btn-default dropdown-toggle" type="button" id="numberOfGuests2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <span id="guestnumber"></span>
+                <div class="exampleView">
                     <span>
-                      <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-                      <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+                      <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+                      <button class="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
                     </span>
-                  </button>
                 </div>
               </div>
               <div id="menuView2">
@@ -111,7 +107,7 @@
 
       <!-- Right part: ingredient detail -->
       <div class="col-md-6 ingrelist">
-        <h4>Ingredient for <span id="numberOfGuests"></span>People</h4>
+        <h4>Ingredient for <span class="numberOfGuests"></span> People</h4>
         <table class="table" id="tablelist"></table>
       </div>
     </div>
@@ -130,6 +126,7 @@
 
 <script src="js/model/dinnerModel.js"></script>
 <script src="js/view/exampleView.js"></script>
+<script scr="js/ctrl/ExampleViewController.js"></script>
 <script src="js/view/dishView.js"></script>
 <script src="js/view/menuView.js"></script>
 <script src="js/view/lastDishView.js"></script>

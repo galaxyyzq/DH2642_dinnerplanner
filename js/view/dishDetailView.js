@@ -1,11 +1,21 @@
 var DishDetailView = function(container, model) {
 
+	var dishintro = container.find("#dishintro");
+	var numberOfGuests = container.find(".numberOfGuests");
+	var tableglobe = container.find("#tablelist");
+
+
+
+var loadDishDetailView = function(){
+
+	var table = tableglobe;
+
+  dishintro.html("");
+  tableglobe.html("");
 
 	//1.Middle part: Picture and description
 
-	var dishintro = container.find("#dishintro");
 	var div = document.createElement('DIV');
-
 	//dishname
 	var dishname = document.createElement('h2');
 	dishname.innerHTML = model.getDish(1).name;
@@ -28,18 +38,16 @@ var DishDetailView = function(container, model) {
 
 
 	//2.Right part: ingredient detail
-
-	//id only use once? so this part should change
-	var numberOfGuests = container.find("#numberOfGuests");
-	numberOfGuests.innerHTML = model.getNumberOfGuests();
+	numberOfGuests.html(model.getNumberOfGuests());
 
 	var getprice=0;
+
+	//var table = container.find("#tablelist");
 
 
 	for(var i = 0; i < model.getDish(1).ingredients.length; i++){
 
-		var table = container.find("#tablelist");
-		//var tablediv = document.createElement('tr');
+		//var table = container.find("#tablelist");
 		var tablerow = document.createElement('tr');
 
 		var quantity = document.createElement('td');
@@ -65,9 +73,8 @@ var DishDetailView = function(container, model) {
 		table.append(tablerow);
 	}
 
-	var table = container.find("#tablelist");
-	//console.log(table);
-	//var tablediv = document.createElement('table');
+
+
 	var tablerow = document.createElement('tr');
 
 	var td1 = document.createElement("td");
@@ -90,5 +97,14 @@ var DishDetailView = function(container, model) {
 	tablerow.appendChild(td3);
 	tablerow.appendChild(td4);
 	table.append(tablerow);
+}
+//End loadDishDetailView function
+
+this.update = function() {
+	loadDishDetailView();
+}
+
+model.addObserver(this);
+loadDishDetailView();
 
 }

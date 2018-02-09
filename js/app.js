@@ -2,8 +2,11 @@ $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
 
-	// And create the instance of ExampleView
-	var exampleView = new ExampleView($("#exampleView"), model);
+	// ExampleView is used to test
+	var exampleView = new ExampleView($(".exampleView"), model);
+  var exampleViewController = new ExampleViewController(exampleView, model);
+
+	//Other view
 	var dishView = new DishView($("#dishView"), model);
 	var menuView = new MenuView($("#menuView"), model);
 	var menuView2 = new MenuView($("#menuView2"), model);

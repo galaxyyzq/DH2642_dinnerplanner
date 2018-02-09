@@ -1,13 +1,21 @@
 var Dinnerprintoutview = function(container, model){
 
+
+var guestnumber = container.find(".numberOfGuests");
+var printcontent = container.find(".printcontent");
+
+
+
+var loadDinnerPrintOutView = function(){
+
+  printcontent.html("");
+  
   //Display guestnumber
   var guestnumbernode = document.createElement('span');
-  var guestnumber = container.find(".numberOfGuests");
+
   var guestnumbervalue = model.getNumberOfGuests();
   guestnumber.append(guestnumbernode);
   guestnumbernode.innerHTML = guestnumbervalue;
-
-
 
   var contentview = document.createElement('div');
 
@@ -16,7 +24,6 @@ var Dinnerprintoutview = function(container, model){
     var onedishcontent = document.createElement('div');
     onedishcontent.className = "col-md-12 row";
 
-    
     //Create img column
     var imgcolumn = document.createElement('div');
     imgcolumn.className ="col-md-2";
@@ -57,6 +64,15 @@ var Dinnerprintoutview = function(container, model){
     precolumn.appendChild(preparation);
 
   }
-  var printcontent = container.find(".printcontent");
   printcontent.append(contentview);
+}
+//End loadDinnerPrintOutView functions
+
+this.update = function() {
+  loadDinnerPrintOutView();
+}
+
+model.addObserver(this);
+loadDinnerPrintOutView();
+
 }
