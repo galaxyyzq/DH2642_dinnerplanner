@@ -8,6 +8,7 @@ var LastDishViewController = function(view,model){
    $(".backbutton").click(function(){
    	$("#lastDishView").hide();
     $("#dishView").show();
+    $("#sidebarView").show();
    });
 
 
