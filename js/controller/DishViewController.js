@@ -6,7 +6,7 @@ var DishViewController = function(view, model){
     $("#lastDishView").show();
    });
 
-   $(".addbutton").click(function(){
+   $(".detailbutton").click(function(){
    	$("#dishView").hide();
     $("#dishDetailView").show();
    });

@@ -20,7 +20,7 @@ var dishes = container.find("#dish");
 			img.setAttribute("src", src);
 
 			var divD = document.createElement('DIV');
-			divD.className = "dish";
+			divD.className = "dish text-center";
 			divD.appendChild(img);
 
 			var name = document.createElement('DIV');
@@ -31,9 +31,13 @@ var dishes = container.find("#dish");
 
 			divD.appendChild(name);
 
-			var btn = document.createElement('DIV');
-			btn.innerHTML = "<p><a href='#' class='btn btn-defult addbutton' role='button'>Add</a> </p>";
-			divD.appendChild(btn);
+			var btn_detail = document.createElement('DIV');
+			btn_detail.innerHTML = "<button href='#' class='btn btn-defult btn-sm detailbutton' role='button'>Detail</button>";
+			divD.appendChild(btn_detail);
+
+			var btn_add = document.createElement('DIV');
+			btn_add.innerHTML = "<button href='#' class='btn btn-info btn-sm' role='button'>+  Add</button>";
+			divD.appendChild(btn_add);
 
 			thumbnail.appendChild(divD);
 			col.appendChild(thumbnail);
