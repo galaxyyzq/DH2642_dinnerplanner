@@ -8,14 +8,14 @@ var DinnerModel = function() {
 
   //PART 2
   //implement observe
-  this.observers = [];
+  var observers = [];
   this.addObserver = function(observer) {
-    this.observers.push(observer);
+    observers.push(observer);
   }
 
-  this.notifyObservers = function(obj) {
+  var notifyObservers = function(obj) {
     for(var i=0; i<this.observers.length; i++) {
-      this.observers[i].update(obj);
+      observers[i].update(obj);
     }
   }
 
@@ -26,8 +26,8 @@ var DinnerModel = function() {
 
   this.setNumberOfGuests = function(num) {
     guestNumber = num;
-    this.notifyObservers();
-    //加上去后果不堪设想
+    notifyObservers();
+
   }
 
   this.getNumberOfGuests = function() {
@@ -43,7 +43,7 @@ var DinnerModel = function() {
       }
     }
     return typemenu;
-    this.notifyObservers();
+    notifyObservers();
   }
 
   //Returns all the dishes on the menu.
@@ -57,7 +57,7 @@ var DinnerModel = function() {
       }
     }
     return fullmenu;
-    this.notifyObservers();
+    notifyObservers();
   }
 
   //Returns all ingredients for all the dishes on the menu.
@@ -68,7 +68,7 @@ var DinnerModel = function() {
       ingredients[i] = dishes[i].ingredients;
     }
     return ingredients;
-    this.notifyObservers();
+    notifyObservers();
   }
 
   //Returns the total price of the menu (all the ingredients multiplied by number of guests).
@@ -81,7 +81,7 @@ var DinnerModel = function() {
       }
     }
     return totalPrice;
-    this.notifyObservers();
+    notifyObservers();
   }
 
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -109,7 +109,7 @@ var DinnerModel = function() {
         }
       }
     }
-    this.notifyObservers();
+    notifyObservers();
   }
 
   //Removes dish from menu
@@ -119,7 +119,7 @@ var DinnerModel = function() {
         menu.pop(dishes[key]);
       }
     }
-    this.notifyObservers();
+    notifyObservers();
   }
 
   //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -142,7 +142,7 @@ var DinnerModel = function() {
       }
       return dish.type == type && found;
     });
-    this.notifyObservers();
+    notifyObservers();
   }
 
   //function that returns a dish of specific ID
