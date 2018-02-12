@@ -1,7 +1,7 @@
 var DishDetailView = function(container, model) {
 
 	var dishintro = container.find("#dishintro");
-	var numberOfGuests = container.find(".numberOfGuests2");
+	var numberOfGuests = container.find(".numberOfGuests");
 	var tableglobe = container.find("#tablelist");
 
 
@@ -9,8 +9,7 @@ var loadDishDetailView = function(){
 
 	var table = tableglobe;
 
-
-  dishintro.html("");
+	dishintro.html("");
   tableglobe.html("");
 
 	//1.Middle part: Picture and description

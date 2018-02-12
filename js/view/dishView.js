@@ -2,6 +2,8 @@ var DishView = function (container, model) {
 
 var dishes = container.find("#dish");
 
+
+
 	var loadDishView = function(){
 
 		dishes.html("");

@@ -6,6 +6,7 @@ var guestnumber = container.find(".numberOfGuests");
 var loadLastDishView = function(){
 
 	finalMenu.html("");
+	guestnumber.html("");
 
 	//Display guestnumber
 	var guestnumbernode = document.createElement('span');

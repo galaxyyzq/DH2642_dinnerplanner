@@ -7,6 +7,4 @@ var DinnerPrintOutController = function(view, model){
     $("#dishView").show();
    });
 
-
-
 }
