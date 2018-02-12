@@ -50,9 +50,9 @@
 <!-- ========================================================================= -->
 
     <!-- 2. Select dish -->
-    <!-- 如何解决ID只能用一次的问题？ -->
-    <div id="dishView" class="container-fluid" style="display:none" >
+
       <!--menu-->
+      <div id="sidebarView" style="display:none">
       <div class="col-sm-3 sidebar hidden-xs">
         <h4>My Dinner</h4>
         <!-- Begin this part can be use again -->
@@ -126,10 +126,9 @@
         </div>
       </nav>
     </div>
+    </div>
     <!-- End burgur menu navigation-->
-
-
-    <div class="col-md-9 dishmenu"  >
+    <div class="col-md-9 dishmenu" id="dishView" style="display:none">
       <h4>Find a dish</h4>
       <div class="searchbar">
         <input type="text" class="form-control" placeholder="Enter key words" aria-label="..." style="width:30%; margin:0 20px 0 0">
@@ -148,96 +147,13 @@
         </div>
       </div>
     </div>
-  </div>
 
 
 <!-- ========================================================================= -->
 
 
   <!-- 3.Dish detail -->
-  <div class="col-md-12 container-fluid" style="padding:0px; display:none" id="dishDetailView">
-
-    <!-- 菜单是一个view,它应该是不变的 ================ -->
-    <!--menu-->
-    <div class="col-sm-3 sidebar hidden-xs">
-      <h4>My Dinner</h4>
-      <!-- Begin this part can be use again -->
-      <div class="sidebarline">
-        <span>People</span>
-        <div>
-
-          <span class="guestnumber"></span>
-          <span>
-            <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-            <button class="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-          </span>
-
-        </div>
-      </div>
-      <div class="menuView">
-        <table class="table" >
-          <tbody class="menutable">
-            <tr>
-              <th>Dishname</th>
-              <th>Cost</th>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="text-center">
-        <p style="text-align:right;">SEK: <span class="totalcost"></span></p>
-        <button class="btn btn-primary btn-lg confirmbutton">Comfirm dinner</button>
-      </div>
-    </div>
-    <!-- End thispart -->
-    <!--burgur menu-->
-    <div class="visible-xs">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-            data-target="#example-navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">My Dinner</a>
-        </div>
-        <div class="collapse navbar-collapse" id="example-navbar-collapse">
-          <ul class="nav navbar-nav" style="padding:20px;">
-            <!-- Begin this part can be use again -->
-            <div class="sidebarline">
-              <span>People</span>
-              <div>
-                <span class="guestnumber"></span>
-                <span>
-                  <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-                  <button class="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-                </span>
-
-              </div>
-            </div>
-            <div class="menuView2">
-              <table class="table menutable">
-                <tr>
-                  <th>Dishname</th>
-                  <th>Cost</th>
-                </tr>
-              </table>
-              <div class="text-center">
-                <p style="text-align:right;">SEK: <span class="totalcost"></span></p>
-                <button class="btn btn-primary btn-lg confirmbutton">Comfirm dinner</button>
-              </div>
-            </div>
-            <!-- End thispart -->
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-  <!-- End burgur menu navigation-->
-
-
+  <div class="container-fluid" style="padding:0px; display:none" id="dishDetailView">
 
   <!-- Content area: (1)Middle part (2)Right part -->
   <div class="col-md-9 dishdetail" style="padding:0">
@@ -246,7 +162,6 @@
       <div id='dishintro'></div>
       <button type="button" class="btn btn-default backsearch" id='button'>Back to search</button>
     </div>
-
     <!-- Right part: ingredient detail -->
     <div class="col-md-6 ingrelist">
       <h4>Ingredient for <span class="numberOfGuests"></span>People</h4>
