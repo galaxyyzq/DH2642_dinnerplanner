@@ -1,7 +1,7 @@
 var Dinnerprintoutview = function(container, model){
 
 
-var guestnumber = container.find(".numberOfGuests");
+var guestnumber = container.find(".numberOfGuests2");
 var printcontent = container.find(".printcontent");
 
 
@@ -9,7 +9,7 @@ var printcontent = container.find(".printcontent");
 var loadDinnerPrintOutView = function(){
 
   printcontent.html("");
-  
+
   //Display guestnumber
   var guestnumbernode = document.createElement('span');
 

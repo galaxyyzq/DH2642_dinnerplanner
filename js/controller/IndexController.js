@@ -1,7 +1,7 @@
 var IndexController = function(view, model){
 
     $("#createnewdinner").click(function(){
-   	$(".exampleView").hide();
+   	$("#homeView").hide();
     $("#dishView").show();
     $("#sidebarView").show();
    });

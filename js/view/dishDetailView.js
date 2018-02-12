@@ -1,14 +1,14 @@
 var DishDetailView = function(container, model) {
 
 	var dishintro = container.find("#dishintro");
-	var numberOfGuests = container.find(".numberOfGuests");
+	var numberOfGuests = container.find(".numberOfGuests2");
 	var tableglobe = container.find("#tablelist");
-
 
 
 var loadDishDetailView = function(){
 
 	var table = tableglobe;
+
 
   dishintro.html("");
   tableglobe.html("");
