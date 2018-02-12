@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/a.css" type="text/css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dinner planner</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="col-md-12 text-center" style="padding: 40px 0 40px 0; background-color:#dddddd">
+      <h1>Dinner planner</h1>
+    </div>
+  </div>
+
+<!-- ========================================================================= -->
+
+  <!-- 1.Home page -->
+  <div class="exampleView">
+    <div class="container-fluid text-center">
+      <div>
+        Number of guests: <span class="numberOfGuests"></span>
+      </div>
+      <div>
+        <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+        <button class="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+      </div>
+    </div>
+    <div class="col-md-12 text-center " >
+      <div class="col-md-4"></div>
+      <div class="col-md-4 text-center" style="padding: 40px 0 40px 0">
+        <p>During this assignment it is important to separate the view from the model. All the model code (data and any business rules) should be kept in the model files. This code should not know anything about the layout (graphics). In other words you should not access HTML components in the model code.
+
+          The goal is that you do the model-view separation manually, to learn about it. Therefore you are not allowed to use frameworks that already enforce model-view separation (Angular, React, etc). You have to program the separation manually. You should not need any specific framework or library for this lab (and lab 2 and 3) besides the basic APIs (HTML DOM processing or jQuery, and Bootstrap).</p>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-12 " style="padding: 20px 10px 40px 10px">
+          <button class="btn btn-default btn-lg" id="createnewdinner">Creat new dinner</button>
+        </div>
+      </div>
+    </div>
+
+
+<!-- ========================================================================= -->
+
+    <!-- 2. Select dish -->
+    <!-- 如何解决ID只能用一次的问题？ -->
+    <div id="dishView" class="container-fluid" style="display:none" >
+      <!--menu-->
+      <div class="col-sm-3 sidebar hidden-xs">
+        <h4>My Dinner</h4>
+        <!-- Begin this part can be use again -->
+        <div class="sidebarline">
+          <span>People</span>
+          <div>
+            <span class="numberOfGuests"></span>
+            <span>
+              <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+              <button class="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+            </span>
+          </div>
+        </div>
+        <div class="menuView">
+          <table class="table menutable">
+            <tr>
+              <th>Dishname</th>
+              <th>Cost</th>
+            </tr>
+          </table>
+          <div class="text-center">
+            <p style="text-align:right;">SEK: <span class="totalcost"></span></p>
+            <button class="btn btn-primary btn-lg confirmdinner">Comfirm dinner</button>
+          </div>
+        </div>
+        <!-- End thispart -->
+      </div>
+      <!--burgur menu-->
+      <div class="visible-xs">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse"
+              data-target="#example-navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">My Dinner</a>
+          </div>
+          <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav" style="padding:20px;">
+              <!-- Begin this part can be use again -->
+              <div class="sidebarline">
+                <span>People</span>
+                <div>
+
+                  <span class="numberOfGuests"></span>
+                  <span>
+                    <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+                    <button class="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+                  </span>
+
+                </div>
+              </div>
+              <div class="menuView2">
+                <table class="table menutable">
+                  <tr>
+                    <th>Dishname</th>
+                    <th>Cost</th>
+                  </tr>
+                </table>
+                <div class="text-center">
+                  <p style="text-align:right;">SEK: <span class="totalcost"></span></p>
+                  <button class="btn btn-primary btn-lg confirmdinner">Comfirm dinner</button>
+                </div>
+              </div>
+              <!-- End this change part -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- End burgur menu navigation-->
+
+
+    <div class="col-md-9 dishmenu"  >
+      <h4>Find a dish</h4>
+      <div class="searchbar">
+        <input type="text" class="form-control" placeholder="Enter key words" aria-label="..." style="width:30%; margin:0 20px 0 0">
+        <div class="dropdown">
+          <select id="filter">
+            <option value="starter">starter</option>
+            <option value="main course">main course</option>
+            <option value="dessert">dessert</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-lg" style="margin: 0 0 0 50px">Search</button>
+      </div>
+      <div class="col-md-9">
+        <div>
+          <span id="dish"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- ========================================================================= -->
+
+
+  <!-- 3.Dish detail -->
+  <div class="col-md-12 container-fluid" style="padding:0px; display:none" id="dishDetailView">
+
+    <!-- 菜单是一个view,它应该是不变的 ================ -->
+    <!--menu-->
+    <div class="col-sm-3 sidebar hidden-xs">
+      <h4>My Dinner</h4>
+      <!-- Begin this part can be use again -->
+      <div class="sidebarline">
+        <span>People</span>
+        <div>
+
+          <span class="guestnumber"></span>
+          <span>
+            <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+            <button class="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+          </span>
+
+        </div>
+      </div>
+      <div class="menuView">
+        <table class="table" >
+          <tbody class="menutable">
+            <tr>
+              <th>Dishname</th>
+              <th>Cost</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="text-center">
+        <p style="text-align:right;">SEK: <span class="totalcost"></span></p>
+        <button class="btn btn-primary btn-lg confirmbutton">Comfirm dinner</button>
+      </div>
+    </div>
+    <!-- End thispart -->
+    <!--burgur menu-->
+    <div class="visible-xs">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target="#example-navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">My Dinner</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+          <ul class="nav navbar-nav" style="padding:20px;">
+            <!-- Begin this part can be use again -->
+            <div class="sidebarline">
+              <span>People</span>
+              <div>
+                <span class="guestnumber"></span>
+                <span>
+                  <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+                  <button class="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+                </span>
+
+              </div>
+            </div>
+            <div class="menuView2">
+              <table class="table menutable">
+                <tr>
+                  <th>Dishname</th>
+                  <th>Cost</th>
+                </tr>
+              </table>
+              <div class="text-center">
+                <p style="text-align:right;">SEK: <span class="totalcost"></span></p>
+                <button class="btn btn-primary btn-lg confirmbutton">Comfirm dinner</button>
+              </div>
+            </div>
+            <!-- End thispart -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- End burgur menu navigation-->
+
+
+
+  <!-- Content area: (1)Middle part (2)Right part -->
+  <div class="col-md-9 dishdetail" style="padding:0">
+    <!-- Middle part: Picture and description -->
+    <div class="col-md-6" style="padding:20px">
+      <div id='dishintro'></div>
+      <button type="button" class="btn btn-default backsearch" id='button'>Back to search</button>
+    </div>
+
+    <!-- Right part: ingredient detail -->
+    <div class="col-md-6 ingrelist">
+      <h4>Ingredient for <span class="numberOfGuests"></span>People</h4>
+      <table class="table" id="tablelist"></table>
+    </div>
+  </div>
+</div>
+<!-- End content area -->
+
+
+
+
+<!-- ========================================================================= -->
+
+
+
+<!-- 4.Dish Overview -->
+<div id="lastDishView" style="display:none">
+  <div class="col-md-12 totalnumber">
+    <h3>My dinner: <span class="numberOfGuests"></span></h3>
+    <button type="button" class="btn btn-default backbutton">Go back and edit dinner</button>
+  </div>
+  <div class="col-md-12 dishoverview" >
+    <div >
+      <div id="finalMenu" style="padding: 20px 0 20px 0">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 text-center" style="padding: 20px 0 20px 0">
+    <button type="button" class="btn btn-primary btn-lg" id="printbutton">Print Full Recipe</button>
+  </div>
+</div>
+
+
+<!-- ========================================================================= -->
+
+
+<!-- 5.Dish Printout  -->
+<div id="contentview" style="display:none">
+  <div class="col-md-12 dinneroverview">
+    <div>
+      <h3>My dinner: <span class="numberOfGuests"></span></h3>
+    </div>
+    <button type="button" class="btn btn-default backbutton">Go back and edit dinner</button>
+  </div>
+  <div class="container-fluid col-md-12 printcontent">
+  </div>
+</div>
+
+
+
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+<!-- The application JavaScript code -->
+<script src="js/view/dinnerprintoutview.js"></script>
+<script src="js/model/dinnerModel.js"></script>
+<script src="js/view/exampleView.js"></script>
+<script src="js/view/dishView.js"></script>
+<script src="js/view/menuView.js"></script>
+<script src="js/view/lastDishView.js"></script>
+<script src="js/view/dishDetailView.js"></script>
+
+<!-- controller -->
+<script src="js/controller/IndexController.js"></script>
+<script src="js/controller/DishViewController.js"></script>
+<script src="js/controller/DishDetailViewController.js"></script>
+<script src="js/controller/LastDishViewController.js"></script>
+<script src="js/controller/DinnerPrintOutController.js"></script>
+
+<script src="js/app.js"></script>
+
+<!-- TODO: Here you should include JS code for your other views -->
+</body>
+</html>

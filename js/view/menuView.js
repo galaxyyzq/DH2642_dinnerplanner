@@ -1,8 +1,8 @@
 var MenuView = function (container, model) {
 
 
-	var menu = container.find("#menutable");
-	var totalCost = container.find("#totalcost");
+	var menu = container.find(".menutable");
+	var totalCost = container.find(".totalcost");
 	var guestnumbervalue = model.getNumberOfGuests();
 
 	var loadMenuView = function (){

@@ -31,6 +31,10 @@ var dishes = container.find("#dish");
 
 			divD.appendChild(name);
 
+			var btn = document.createElement('DIV');
+			btn.innerHTML = "<p><a href='#' class='btn btn-defult addbutton' role='button'>Add</a> </p>";
+			divD.appendChild(btn);
+
 			thumbnail.appendChild(divD);
 			col.appendChild(thumbnail);
 			div.appendChild(col);
