@@ -23,7 +23,7 @@ $(function() {
 	 var dishDetailViewController = new DishDetailViewController(dishDetailView,dishView,model);
 	 var lastDishViewController = new LastDishViewController(lastDishView,dinnerprintoutview,dishView,sidebarView,model);
 	 var printoutController = new DinnerPrintOutController(dinnerprintoutview,dishView,sidebarView,model);
-	 var sidebarViewController = new SidebarViewController(sidebarView,dishView,lastDishView,model);
+	 var sidebarViewController = new SidebarViewController(sidebarView,dishView,dishDetailView,lastDishView,model);
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.
