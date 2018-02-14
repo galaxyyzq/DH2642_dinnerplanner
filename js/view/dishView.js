@@ -43,8 +43,9 @@ this.show = function(){
 
 			divD.appendChild(name);
 
-			var btn_detail = this.detailbutton = document.createElement('DIV');
-			btn_detail.innerHTML = "<button href='#' class='btn btn-defult btn-sm detailbutton' role='button'>Detail</button>";
+			var btn_detail = document.createElement('DIV');
+			btn_detail.innerHTML = "<button href='#' class='btn btn-defult btn-sm' role='button'>Detail</button>";
+			btn_detail.className = "detailbutton";
 			divD.appendChild(btn_detail);
 
 			var btn_add = document.createElement('DIV');
@@ -70,7 +71,7 @@ this.show = function(){
 	}
 	model.addObserver(this);
 	loadDishView();
-	this.detailbutton = container.find(".detailbutton");
+	
 
 }
 

@@ -1,10 +1,9 @@
-var SidebarViewController = function(view, model){
+var SidebarViewController = function(view1,view2,view3,model){
 
-  view.confirmdinner.click(function(){
-    view.hide();
-    $("#dishView").hide();
-    $("#lastDishView").show();
+  view1.confirmdinner.click(function(){
+    view1.hide();
+    view2.hide();
+    view3.show();
   });
-
 
 }

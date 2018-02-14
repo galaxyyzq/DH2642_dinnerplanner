@@ -1,10 +1,10 @@
 
-var DinnerPrintOutController = function(view, model){
+var DinnerPrintOutController = function(view1,view2,view3,model){
 
-    view.backbutton.click(function(){
-		view.hide();
-        $("#dishView").show();
-        $("#sidebarView").show();
+    view1.backbutton.click(function(){
+		view1.hide();
+        view2.show();
+        view3.show();
 
 	});
 

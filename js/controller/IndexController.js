@@ -1,9 +1,9 @@
-var IndexController = function(view, model){
+var IndexController = function(view1,view2,view3,model){
 
-    view.createnewdinner.click(function(){
-        view.hide();
-        $("#sidebarView").show();
-        $("#dishView").show();
+    view1.createnewdinner.click(function(){
+        view1.hide();
+        view2.show();
+        view3.show();
 	});
 
 }

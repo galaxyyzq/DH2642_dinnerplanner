@@ -1,9 +1,9 @@
-var DishDetailViewController = function(view,model){
+var DishDetailViewController = function(view1,view2,model){
 
 
-    view.backsearch.click(function(){
-   	view.hide();
-    $("#dishView").show();
+    view1.backsearch.click(function(){
+   	view1.hide();
+    view2.show();
 
    });
 }

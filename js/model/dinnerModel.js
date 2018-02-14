@@ -13,7 +13,7 @@ var DinnerModel = function() {
     observers.push(observer);
   }
 
-  this.notifyObservers = function(obj) {
+  var notifyObservers = function(obj) {
     for(var i=0; i< observers.length; i++) {
       observers[i].update(obj);
     }

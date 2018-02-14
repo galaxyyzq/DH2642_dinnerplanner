@@ -18,12 +18,12 @@ $(function() {
 
 
 	//controllers
-	 var indexController = new IndexController(homeView,model);
-	 var dishViewController = new DishViewController(dishView,model);
-	 var dishDetailViewController = new DishDetailViewController(dishDetailView,model);
-	 var lastDishViewController = new LastDishViewController(lastDishView,model);
-	 var printoutController = new DinnerPrintOutController(dinnerprintoutview,model);
-	 var sidebarViewController = new SidebarViewController(sidebarView,model);
+	 var indexController = new IndexController(homeView,sidebarView,dishView,model);
+	 var dishViewController = new DishViewController(dishView,dishDetailView,model);
+	 var dishDetailViewController = new DishDetailViewController(dishDetailView,dishView,model);
+	 var lastDishViewController = new LastDishViewController(lastDishView,dinnerprintoutview,dishView,sidebarView,model);
+	 var printoutController = new DinnerPrintOutController(dinnerprintoutview,dishView,sidebarView,model);
+	 var sidebarViewController = new SidebarViewController(sidebarView,dishView,lastDishView,model);
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.
