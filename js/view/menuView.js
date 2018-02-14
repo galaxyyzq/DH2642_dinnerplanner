@@ -1,18 +1,20 @@
 var MenuView = function (container, model) {
 
-
-	var menu = container.find(".menutable");
-	var totalCost = container.find(".totalcost");
-	var guestnumbervalue = model.getNumberOfGuests();
-
+	//General State Function
 	this.hide = function(){
 		container.hide();
 	}
 
-    this.show = function(){
+	this.show = function(){
 		container.show();
 	}
 
+	//Define variables
+	var menu = container.find(".menutable");
+	var totalCost = container.find(".totalcost");
+	var guestnumbervalue = model.getNumberOfGuests();
+	
+	//Construct View Function
 	var loadMenuView = function (){
 
 		menu.html("");

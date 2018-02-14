@@ -13,13 +13,11 @@ var DinnerModel = function() {
     observers.push(observer);
   }
 
-  var notifyObservers = function(obj) {
+  var notifyObservers = function() {
     for(var i=0; i< observers.length; i++) {
-      observers[i].update(obj);
+      observers[i].update();
     }
   }
-
-
 
   //PART 3
   //functions used in all views

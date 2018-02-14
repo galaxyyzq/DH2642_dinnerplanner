@@ -1,6 +1,5 @@
 var Dinnerprintoutview = function(container, model){
 
-
 var guestnumber = container.find(".numberOfGuests");
 var printcontent = container.find(".printcontent");
 var backbutton=this.backbutton = container.find(".backbutton");
@@ -12,8 +11,6 @@ this.hide = function(){
 this.show = function(){
 		container.show();
 	}
-
-
 
 var loadDinnerPrintOutView = function(){
 

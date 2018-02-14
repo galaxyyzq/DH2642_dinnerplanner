@@ -1,17 +1,14 @@
 var DishView = function (container, model) {
 
-var dishes = container.find("#dish");
+	var dishes = container.find("#dish");
 
-
-
-this.hide = function(){
+	//General State Function
+	this.hide = function(){
 		container.hide();
 	}
-
-this.show = function(){
+	this.show = function(){
 		container.show();
 	}
-
 
 
 	var loadDishView = function(){
@@ -61,17 +58,13 @@ this.show = function(){
 	}
 	//End loadDishView function
 
-	//var detailbuttun = this.detailbutton = container.find(".detailbutton");
-	//this.detailbutton = container.find(".detailbutton");
-
-
 
 	this.update = function() {
 		loadDishView();
 	}
 	model.addObserver(this);
+
 	loadDishView();
-	
+
 
 }
-

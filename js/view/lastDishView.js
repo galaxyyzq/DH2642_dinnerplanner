@@ -1,92 +1,95 @@
 var LastDishView = function(container, model) {
 
-var finalMenu = container.find("#finalMenu");
-var guestnumber = container.find(".numberOfGuests");
-var printbutton= this.printbutton = container.find("#printbutton");
-var backbutton= this.backbutton = container.find(".backbutton");
-
-this.hide = function(){
+	//General State Function
+	this.hide = function(){
 		container.hide();
 	}
 
-this.show = function(){
+	this.show = function(){
 		container.show();
 	}
 
-var loadLastDishView = function(){
+	//Define variables
+	var finalMenu = container.find("#finalMenu");
+	var guestnumber = container.find(".numberOfGuests");
+	var printbutton= this.printbutton = container.find("#printbutton");
+	var backbutton= this.backbutton = container.find(".backbutton");
 
-	finalMenu.html("");
-	guestnumber.html("");
+	//Construct View Function
+	var loadLastDishView = function(){
 
-	//Display guestnumber
-	var guestnumbernode = document.createElement('span');
-	var guestnumbervalue = model.getNumberOfGuests();
-	guestnumber.append(guestnumbernode);
-	guestnumbernode.innerHTML = guestnumbervalue;
+		finalMenu.html("");
+		guestnumber.html("");
 
-	//display other content
-	var div = document.createElement('DIV');
-	div.className ="col-md-12 dishoverview";
+		//Display guestnumber
+		var guestnumbernode = document.createElement('span');
+		var guestnumbervalue = model.getNumberOfGuests();
+		guestnumber.append(guestnumbernode);
+		guestnumbernode.innerHTML = guestnumbervalue;
 
-	var totalCost = 0;
-	var cost = 0;
+		//display other content
+		var div = document.createElement('DIV');
+		div.className ="col-md-12 dishoverview";
 
-	for(var i = 0; i < model.getFullMenu().length; i++){
+		var totalCost = 0;
+		var cost = 0;
 
-		var col = document.createElement('DIV');
-		col.className = "thumbnail";
-		col.style = "margin: 0 10px 0 10px";
+		for(var i = 0; i < model.getFullMenu().length; i++){
+
+			var col = document.createElement('DIV');
+			col.className = "thumbnail";
+			col.style = "margin: 0 10px 0 10px";
 
 
-		var img = document.createElement('img');
-		img.className = "dishpic";
-		img.style = "margin: 0 10px 0 10px";
-		var src = "images/" + model.getFullMenu()[i].image;
-		img.setAttribute("src", src);
-		col.appendChild(img);
+			var img = document.createElement('img');
+			img.className = "dishpic";
+			img.style = "margin: 0 10px 0 10px";
+			var src = "images/" + model.getFullMenu()[i].image;
+			img.setAttribute("src", src);
+			col.appendChild(img);
 
-		var divText = document.createElement('DIV');
-		divText.className ="caption text-center";
+			var divText = document.createElement('DIV');
+			divText.className ="caption text-center";
 
-		var divName = document.createElement('DIV');
-		divName.innerHTML = model.getFullMenu()[i].name;
-		divText.appendChild(divName);
+			var divName = document.createElement('DIV');
+			divName.innerHTML = model.getFullMenu()[i].name;
+			divText.appendChild(divName);
 
-		for(var j = 0; j < model.getFullMenu()[i].ingredients.length; j++){
-			cost += model.getFullMenu()[i].ingredients[j].price * model.getNumberOfGuests();
+			for(var j = 0; j < model.getFullMenu()[i].ingredients.length; j++){
+				cost += model.getFullMenu()[i].ingredients[j].price * model.getNumberOfGuests();
+			}
+
+			totalCost += cost;
+
+			var divCost = document.createElement('H4');
+			divCost.innerHTML = cost + " SEK";
+			divText.appendChild(divCost);
+			col.appendChild(divText);
+
+			div.appendChild(col);
+
 		}
 
-		totalCost += cost;
+		var costAll = document.createElement('DIV');
+		costAll.className = "col-md-12 text-center";
+		var costNumber = document.createElement('H3');
+		costNumber.className = "center";
+		costNumber.innerHTML = "Total： " + totalCost + " SEK";
+		costAll.appendChild(costNumber);
 
-		var divCost = document.createElement('H4');
-		divCost.innerHTML = cost + " SEK";
-		divText.appendChild(divCost);
-		col.appendChild(divText);
+		div.appendChild(costAll);
 
-		div.appendChild(col);
+		finalMenu.append(div);
+	}
+	//End loadLastDishView function
 
+	this.update = function() {
+		loadLastDishView();
 	}
 
-	var costAll = document.createElement('DIV');
-	costAll.className = "col-md-12 text-center";
-	var costNumber = document.createElement('H3');
-	costNumber.className = "center";
-	costNumber.innerHTML = "Total： " + totalCost + " SEK";
-	costAll.appendChild(costNumber);
+	model.addObserver(this);
 
-	div.appendChild(costAll);
-
-	finalMenu.append(div);
-}
-//End loadLastDishView function
-
-this.update = function() {
 	loadLastDishView();
-}
-
-model.addObserver(this);
-
-loadLastDishView();
 
 }
 
