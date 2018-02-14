@@ -5,6 +5,14 @@ var MenuView = function (container, model) {
 	var totalCost = container.find(".totalcost");
 	var guestnumbervalue = model.getNumberOfGuests();
 
+	this.hide = function(){
+		container.hide();
+	}
+
+    this.show = function(){
+		container.show();
+	}
+
 	var loadMenuView = function (){
 
 		menu.html("");

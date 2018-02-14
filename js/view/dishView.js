@@ -4,6 +4,16 @@ var dishes = container.find("#dish");
 
 
 
+this.hide = function(){
+		container.hide();
+	}
+
+this.show = function(){
+		container.show();
+	}
+
+
+
 	var loadDishView = function(){
 
 		dishes.html("");
@@ -33,7 +43,7 @@ var dishes = container.find("#dish");
 
 			divD.appendChild(name);
 
-			var btn_detail = document.createElement('DIV');
+			var btn_detail = this.detailbutton = document.createElement('DIV');
 			btn_detail.innerHTML = "<button href='#' class='btn btn-defult btn-sm detailbutton' role='button'>Detail</button>";
 			divD.appendChild(btn_detail);
 
@@ -50,23 +60,17 @@ var dishes = container.find("#dish");
 	}
 	//End loadDishView function
 
+	//var detailbuttun = this.detailbutton = container.find(".detailbutton");
+	//this.detailbutton = container.find(".detailbutton");
+
+
 
 	this.update = function() {
 		loadDishView();
 	}
 	model.addObserver(this);
 	loadDishView();
+	this.detailbutton = container.find(".detailbutton");
 
 }
 
-
-//origin HTML
-//<div class="col-sm-4">
-//				<div class="thumbnail">
-//					<img src="images/meatballs.jpg" class="dishpic">
-//					<div class="caption text-center">
-//						<h4>Meatballs</h4>
-//						<p><a href="#" class="btn btn-defult" role="button">Add</a> </p>
-//					</div>
-//				</div>
-//			</div>

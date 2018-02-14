@@ -4,7 +4,7 @@ $(function() {
 
 	// ExampleView is used to test
 	var exampleView = new ExampleView($(".exampleView"), model);
-  var exampleViewController = new ExampleViewController(exampleView, model);
+    var exampleViewController = new ExampleViewController(exampleView, model);
 
 	//Other view
 	var dishView = new DishView($("#dishView"), model);
@@ -13,14 +13,17 @@ $(function() {
 	var lastDishView = new LastDishView($("#lastDishView"), model);
 	var dishDetailView = new DishDetailView($("#dishDetailView"), model);
 	var dinnerprintoutview = new Dinnerprintoutview($("#contentview"), model);
+	var homeView = new HomeView($("#homeView"), model);
+	var sidebarView = new SidebarView($("#sidebarView"), model);
 
 
 	//controllers
-	 var indexController = new IndexController(exampleView,model);
+	 var indexController = new IndexController(homeView,model);
 	 var dishViewController = new DishViewController(dishView,model);
 	 var dishDetailViewController = new DishDetailViewController(dishDetailView,model);
 	 var lastDishViewController = new LastDishViewController(lastDishView,model);
 	 var printoutController = new DinnerPrintOutController(dinnerprintoutview,model);
+	 var sidebarViewController = new SidebarViewController(sidebarView,model);
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.

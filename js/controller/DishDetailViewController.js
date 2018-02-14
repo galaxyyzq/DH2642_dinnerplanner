@@ -1,12 +1,9 @@
 var DishDetailViewController = function(view,model){
 
-   $(".confirmbutton").click(function(){
-   	$("#dishDetailView").hide();
-    $("#lastDishView").show();
-   });
 
-   $(".backsearch").click(function(){
-   	$("#dishDetailView").hide();
+    view.backsearch.click(function(){
+   	view.hide();
     $("#dishView").show();
+
    });
 }

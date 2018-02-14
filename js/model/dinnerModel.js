@@ -13,8 +13,8 @@ var DinnerModel = function() {
     observers.push(observer);
   }
 
-  var notifyObservers = function(obj) {
-    for(var i=0; i<this.observers.length; i++) {
+  this.notifyObservers = function(obj) {
+    for(var i=0; i< observers.length; i++) {
       observers[i].update(obj);
     }
   }
@@ -109,7 +109,7 @@ var DinnerModel = function() {
         }
       }
     }
-    notifyObservers();
+    this.notifyObservers();
   }
 
   //Removes dish from menu

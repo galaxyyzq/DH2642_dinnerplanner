@@ -2,6 +2,16 @@ var LastDishView = function(container, model) {
 
 var finalMenu = container.find("#finalMenu");
 var guestnumber = container.find(".numberOfGuests");
+var printbutton= this.printbutton = container.find("#printbutton");
+var backbutton= this.backbutton = container.find(".backbutton");
+
+this.hide = function(){
+		container.hide();
+	}
+
+this.show = function(){
+		container.show();
+	}
 
 var loadLastDishView = function(){
 

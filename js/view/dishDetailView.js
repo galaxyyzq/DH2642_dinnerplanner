@@ -4,13 +4,23 @@ var DishDetailView = function(container, model) {
 	var numberOfGuests = container.find(".numberOfGuests");
 	var tableglobe = container.find("#tablelist");
 
+    var backsearch= this.backsearch = container.find(".backsearch");
+
+	this.hide = function(){
+		container.hide();
+	}
+
+    this.show = function(){
+		container.show();
+	}
+
 
 var loadDishDetailView = function(){
 
 	var table = tableglobe;
 
 	dishintro.html("");
-  tableglobe.html("");
+    tableglobe.html("");
 
 	//1.Middle part: Picture and description
 
