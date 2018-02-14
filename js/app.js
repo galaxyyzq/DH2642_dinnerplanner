@@ -16,14 +16,14 @@ $(function() {
 	var homeView = new HomeView($("#homeView"), model);
 	var sidebarView = new SidebarView($("#sidebarView"), model);
 
-
-	//controllers
-	 var indexController = new IndexController(homeView,sidebarView,dishView,model);
-	 var dishViewController = new DishViewController(dishView,dishDetailView,model);
-	 var dishDetailViewController = new DishDetailViewController(dishDetailView,dishView,model);
-	 var lastDishViewController = new LastDishViewController(lastDishView,dinnerprintoutview,dishView,sidebarView,model);
-	 var printoutController = new DinnerPrintOutController(dinnerprintoutview,dishView,sidebarView,model);
-	 var sidebarViewController = new SidebarViewController(sidebarView,dishView,dishDetailView,lastDishView,model);
+	//Controllers
+	var generalController = new GeneralController(homeView,sidebarView,dishView,dishDetailView,lastDishView,dinnerprintoutview,model);
+	// var indexController = new IndexController(homeView,sidebarView,dishView,model);
+	// var dishViewController = new DishViewController(dishView,dishDetailView,model);
+	// var dishDetailViewController = new DishDetailViewController(dishDetailView,dishView,model);
+	// var lastDishViewController = new LastDishViewController(lastDishView,dinnerprintoutview,dishView,sidebarView,model);
+	// var printoutController = new DinnerPrintOutController(dinnerprintoutview,dishView,sidebarView,model);
+	// var sidebarViewController = new SidebarViewController(sidebarView,dishView,dishDetailView,lastDishView,model);
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.
