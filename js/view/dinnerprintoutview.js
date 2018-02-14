@@ -1,85 +1,90 @@
 var Dinnerprintoutview = function(container, model){
 
-var guestnumber = container.find(".numberOfGuests");
-var printcontent = container.find(".printcontent");
-var backbutton=this.backbutton = container.find(".backbutton");
-
-this.hide = function(){
+	//General State Function
+	this.hide = function(){
 		container.hide();
 	}
 
-this.show = function(){
+	this.show = function(){
 		container.show();
 	}
 
-var loadDinnerPrintOutView = function(){
 
-  guestnumber.html("");
-  printcontent.html("");
+	//Define variables
+	var guestnumber = container.find(".numberOfGuests");
+	var printcontent = container.find(".printcontent");
+	var backbutton=this.backbutton = container.find(".backbutton");
 
-  //Display guestnumber
-  var guestnumbernode = document.createElement('span');
+	
+	//Construct View Function
+	var loadDinnerPrintOutView = function(){
 
-  var guestnumbervalue = model.getNumberOfGuests();
-  guestnumber.append(guestnumbernode);
-  guestnumbernode.innerHTML = guestnumbervalue;
+		guestnumber.html("");
+		printcontent.html("");
 
-  var contentview = document.createElement('div');
+		//Display guestnumber
+		var guestnumbernode = document.createElement('span');
 
-  for(var i = 0; i < model.getFullMenu().length; i++){
+		var guestnumbervalue = model.getNumberOfGuests();
+		guestnumber.append(guestnumbernode);
+		guestnumbernode.innerHTML = guestnumbervalue;
 
-    var onedishcontent = document.createElement('div');
-    onedishcontent.className = "col-md-12 row";
+		var contentview = document.createElement('div');
 
-    //Create img column
-    var imgcolumn = document.createElement('div');
-    imgcolumn.className ="col-md-2";
-    var img = document.createElement('img');
-    var src = "images/" + model.getFullMenu()[i].image;
-    img.setAttribute("src", src);
-    img.className = 'img-responsive';
-    img.style = 'margin: 20px 0 20px 0;';
+		for(var i = 0; i < model.getFullMenu().length; i++){
 
-    //create titlecolumn
-    var titlecolumn = document.createElement('div');
-    titlecolumn.className = "col-md-5";
-    titlecolumn.style = "padding: 0 50px 0 10px";
-    var title = document.createElement('h2');
-    title.innerHTML = model.getFullMenu()[i].name;
-    var description = document.createElement('p');
-    description.innerHTML = model.getFullMenu()[i].description;
+			var onedishcontent = document.createElement('div');
+			onedishcontent.className = "col-md-12 row";
 
-    //create preparation column
-    var precolumn = document.createElement('div');
-    precolumn.className = "col-md-4";
-    var title2 = document.createElement('h4');
-    title2.innerHTML = "Preparation";
-    var preparation = document.createElement('p');
-    preparation.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+			//Create img column
+			var imgcolumn = document.createElement('div');
+			imgcolumn.className ="col-md-2";
+			var img = document.createElement('img');
+			var src = "images/" + model.getFullMenu()[i].image;
+			img.setAttribute("src", src);
+			img.className = 'img-responsive';
+			img.style = 'margin: 20px 0 20px 0;';
 
-    contentview.appendChild(onedishcontent);
+			//create titlecolumn
+			var titlecolumn = document.createElement('div');
+			titlecolumn.className = "col-md-5";
+			titlecolumn.style = "padding: 0 50px 0 10px";
+			var title = document.createElement('h2');
+			title.innerHTML = model.getFullMenu()[i].name;
+			var description = document.createElement('p');
+			description.innerHTML = model.getFullMenu()[i].description;
 
-    onedishcontent.appendChild(imgcolumn);
-    imgcolumn.appendChild(img);
+			//create preparation column
+			var precolumn = document.createElement('div');
+			precolumn.className = "col-md-4";
+			var title2 = document.createElement('h4');
+			title2.innerHTML = "Preparation";
+			var preparation = document.createElement('p');
+			preparation.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
 
-    onedishcontent.appendChild(titlecolumn);
-    titlecolumn.appendChild(title);
-    titlecolumn.appendChild(description);
+			contentview.appendChild(onedishcontent);
 
-    onedishcontent.appendChild(precolumn);
-    precolumn.appendChild(title2);
-    precolumn.appendChild(preparation);
+			onedishcontent.appendChild(imgcolumn);
+			imgcolumn.appendChild(img);
 
-  }
-  printcontent.append(contentview);
-}
-//End loadDinnerPrintOutView functions
+			onedishcontent.appendChild(titlecolumn);
+			titlecolumn.appendChild(title);
+			titlecolumn.appendChild(description);
 
-this.update = function() {
-  loadDinnerPrintOutView();
-}
+			onedishcontent.appendChild(precolumn);
+			precolumn.appendChild(title2);
+			precolumn.appendChild(preparation);
 
-model.addObserver(this);
-loadDinnerPrintOutView();
+		}
+		printcontent.append(contentview);
+	}
+	//End loadDinnerPrintOutView functions
+
+	this.update = function() {
+		loadDinnerPrintOutView();
+	}
+
+	model.addObserver(this);
+	loadDinnerPrintOutView();
 
 }

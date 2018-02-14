@@ -23,7 +23,7 @@
 
   <!-- 1.Home page -->
   <div id="homeView">
-    <div class="container-fluid text-center exampleView">
+    <div class="container-fluid text-center guestNumberView">
       <div>
         Number of guests: <span class="numberOfGuests"></span>
       </div>
@@ -58,7 +58,7 @@
         <!-- Begin this part can be use again -->
         <div class="sidebarline">
           <span>People</span>
-          <div class="exampleView">
+          <div class="guestNumberView">
             <span class="numberOfGuests"></span>
             <span>
               <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
@@ -98,7 +98,7 @@
               <!-- Begin this part can be use again -->
               <div class="sidebarline">
                 <span>People</span>
-                <div class="exampleView">
+                <div class="guestNumberView">
                   <span class="numberOfGuests"></span>
                   <span>
                     <button class="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
@@ -134,7 +134,7 @@
         <div class="dropdown">
           <select id="filter">
             <option value="starter">starter</option>
-            <option value="main course">main course</option>
+            <option value="main dish">main dish</option>
             <option value="dessert">dessert</option>
           </select>
         </div>
@@ -156,11 +156,13 @@
 
   <!-- Content area: (1)Middle part (2)Right part -->
   <div class="col-md-9 dishdetail" style="padding:0">
+
     <!-- Middle part: Picture and description -->
     <div class="col-md-6" style="padding:20px">
       <div id='dishintro'></div>
       <button type="button" class="btn btn-default backsearch">Back to search</button>
     </div>
+
     <!-- Right part: ingredient detail -->
     <div class="col-md-6 ingrelist">
       <h4>Ingredient for <span class="numberOfGuests"></span>People</h4>
@@ -222,7 +224,7 @@
 <!-- The application JavaScript code -->
 <script src="js/view/dinnerprintoutview.js"></script>
 <script src="js/model/dinnerModel.js"></script>
-<script src="js/view/exampleView.js"></script>
+<script src="js/view/GuestNumberView.js"></script>
 <script src="js/view/dishView.js"></script>
 <script src="js/view/menuView.js"></script>
 <script src="js/view/lastDishView.js"></script>
@@ -231,12 +233,8 @@
 <script src="js/view/sidebarView.js"></script>
 
 <!-- controller -->
-<!-- <script src="js/controller/IndexController.js"></script> -->
-<!-- <script src="js/controller/DishViewController.js"></script> -->
-<!-- <script src="js/controller/DishDetailViewController.js"></script> -->
-<!-- <script src="js/controller/LastDishViewController.js"></script> -->
-<!-- <script src="js/controller/DinnerPrintOutController.js"></script> -->
-<!-- <script src="js/controller/SidebarViewController.js"></script> -->
+<script src="js/controller/GuestNumberViewController.js"></script>
+<script src="js/controller/DishFilterController.js"></script>
 <script src="js/controller/GeneralController.js"></script>
 
 <script src="js/app.js"></script>

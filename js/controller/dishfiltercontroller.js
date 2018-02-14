@@ -1,13 +1,14 @@
-var dishFilterController = function(view, model){
+// Control the dropdown menu to select different type of dishes
+var DishFilterController = function(view, model){
 
-  var selectValue = $("#filter").val();
+  var filter= $("#filter").get(0);
 
-  if (selectValue == "starter") {
-    model.getSelectedDish('starter');
-  } else if (selectValue == "dessert") {
-    model.getSelectedDish('dessert');
-  } else {
-    model.getSelectedDish('main dish');
+  var listener = function(){
+    var val =$("#filter").val();
+    view.types = val;
+    view.loadDishView(val);
   }
+
+  filter.addEventListener("change",listener,false);
 
 }

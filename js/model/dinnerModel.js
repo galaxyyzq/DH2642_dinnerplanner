@@ -1,10 +1,12 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
+
   //PART 1
   //initial value
   var guestNumber = 3;
   var menu = [1,100,202];
+
 
   //PART 2
   //implement observe
@@ -19,9 +21,9 @@ var DinnerModel = function() {
     }
   }
 
+
   //PART 3
   //functions used in all views
-
   this.setNumberOfGuests = function(num) {
     guestNumber = num;
     notifyObservers();

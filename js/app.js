@@ -2,11 +2,8 @@ $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
 
-	// ExampleView is used to test
-	var exampleView = new ExampleView($(".exampleView"), model);
-    var exampleViewController = new ExampleViewController(exampleView, model);
-
-	//Other view
+	//view
+	var guestNumberView = new GuestNumberView($(".guestNumberView"), model);
 	var dishView = new DishView($("#dishView"), model);
 	var menuView = new MenuView($(".menuView"), model);
 	var menuView2 = new MenuView($(".menuView2"), model);
@@ -17,13 +14,10 @@ $(function() {
 	var sidebarView = new SidebarView($("#sidebarView"), model);
 
 	//Controllers
+	var guestNumberViewController = new GuestNumberViewController(guestNumberView, model);
 	var generalController = new GeneralController(homeView,sidebarView,dishView,dishDetailView,lastDishView,dinnerprintoutview,model);
-	// var indexController = new IndexController(homeView,sidebarView,dishView,model);
-	// var dishViewController = new DishViewController(dishView,dishDetailView,model);
-	// var dishDetailViewController = new DishDetailViewController(dishDetailView,dishView,model);
-	// var lastDishViewController = new LastDishViewController(lastDishView,dinnerprintoutview,dishView,sidebarView,model);
-	// var printoutController = new DinnerPrintOutController(dinnerprintoutview,dishView,sidebarView,model);
-	// var sidebarViewController = new SidebarViewController(sidebarView,dishView,dishDetailView,lastDishView,model);
+	var dishFilterController= new DishFilterController(dishView,model);
+
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.
