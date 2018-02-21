@@ -1,5 +1,9 @@
 var DishDetailView = function(container, model,id) {
 
+
+	
+	this.container=container;
+
 	//General State Function
 	this.hide = function(){
 		container.hide();
@@ -94,8 +98,9 @@ var DishDetailView = function(container, model,id) {
 
 
 		var addmenubutton = document.createElement("button");
-		addmenubutton.className = "btn btn-default";
+		addmenubutton.className = "btn btn-default addButton";
 		addmenubutton.innerHTML = "Add to menu";
+		addmenubutton.setAttribute("id", dishId);
 
 		var td3 = document.createElement("td");
 		var td4 = document.createElement("td");

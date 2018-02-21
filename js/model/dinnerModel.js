@@ -7,6 +7,8 @@ var DinnerModel = function() {
   var guestNumber = 3;
   var menu = [1,100,202];
 
+  var parent = this;
+
 
   //PART 2
   //implement observe
@@ -86,31 +88,30 @@ var DinnerModel = function() {
 
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
   //it is removed from the menu and the new one added.
-  this.addDishToMenu = function(id) {
-    var allType = [];
-    for(key in dishes){
-      if(dishes[key].id == id) {
-        for (var i=0; i<menu.length;i++){
-          allType.push(menu[i].type);
-        }
-        if(allType.indexOf(dishes[key].type) == -1){
-          menu.push(dishes[key]);
-        }
-        else{
-          function find(){
-            for(k in menu){
-              if(menu[k].type == dishes[key].type){
-                return menu[k];
-              }
-            }
-          }
-          menu.pop(menu.filter(find));
-          menu.push(dishes[key]);
-        }
-      }
+  this.addDishToMenu = function(iditem) {
+
+    var state=true;
+    for (key in menu){
+    	if(menu[key] == iditem){
+    		state=false;
+    	}
     }
-    this.notifyObservers();
+    var newdish=parent.getDish(iditem);
+    if (state){
+    	 // for (var i=0; i<3;i++){
+    		 // if (parent.getDish(menu[i]).type === newdish.type){
+           // parent.removeDishFromMenu(menu[i]);
+    		 // }
+    
+    	 // }
+
+      menu.push(newdish.id);
+
+    }
+    
+    notifyObservers();
   }
+
 
   //Removes dish from menu
   this.removeDishFromMenu = function(id) {

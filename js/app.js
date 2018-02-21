@@ -18,6 +18,7 @@ $(function() {
 	var generalController = new GeneralController(homeView,sidebarView,dishView,dishDetailView,lastDishView,dinnerprintoutview,model);
 	var dishFilterController= new DishFilterController(dishView,model);
 	var dishViewController = new DishViewController(dishView, model,this);
+	var addFunctionController = new AddFunctionController(dishDetailView, model,this);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
