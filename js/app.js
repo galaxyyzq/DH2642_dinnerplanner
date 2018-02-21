@@ -17,6 +17,7 @@ $(function() {
 	var guestNumberViewController = new GuestNumberViewController(guestNumberView, model);
 	var generalController = new GeneralController(homeView,sidebarView,dishView,dishDetailView,lastDishView,dinnerprintoutview,model);
 	var dishFilterController= new DishFilterController(dishView,model);
+	var dishDetailController = new DishDetailController(dishDetailView, model)
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
