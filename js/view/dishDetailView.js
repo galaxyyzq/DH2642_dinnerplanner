@@ -1,4 +1,4 @@
-var DishDetailView = function(container, model) {
+var DishDetailView = function(container, model,id) {
 
 	//General State Function
 	this.hide = function(){
@@ -17,7 +17,7 @@ var DishDetailView = function(container, model) {
 	var id=1;
 
 	//Construct View Function
-	var loadDishDetailView = function(id){
+	this.loadDishDetailView = function(id){
 
 		var table = tableglobe;
 		var dishId = id;
@@ -113,11 +113,11 @@ var DishDetailView = function(container, model) {
 	//End loadDishDetailView function
 
 	this.update = function() {
-		loadDishDetailView(id);
+		this.loadDishDetailView(id);
 	}
 
 	model.addObserver(this);
 
-	loadDishDetailView(id);
+	this.loadDishDetailView(id);
 
 }

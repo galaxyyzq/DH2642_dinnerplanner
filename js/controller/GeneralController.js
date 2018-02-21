@@ -7,10 +7,6 @@ var GeneralController = function(view1,view2,view3,view4,view5,view6,model){
     view3.show();
   });
 
-  $("#dishView").on("click",".detailbutton",function(){
-    view3.hide();
-    view4.show();
-  });
 
   view4.backsearch.click(function(){
     view4.hide();

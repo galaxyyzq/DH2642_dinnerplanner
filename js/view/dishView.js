@@ -1,5 +1,7 @@
 var DishView = function (container, model) {
 
+	this.container=container;
+
 	//General State Function
 	this.hide = function(){
 		container.hide();
@@ -59,7 +61,7 @@ var DishView = function (container, model) {
 				btn_detail.innerHTML = "<button href='#' class='btn btn-defult btn-sm' role='button'>Detail</button>";
 				btn_detail.className = "detailbutton";
 
-				btn_detail.className = model.getSelectedDish(type)[i].id;
+				btn_detail.setAttribute("id", model.getSelectedDish(type)[i].id);
 				divD.appendChild(btn_detail);
 
 				// var btn_add = document.createElement('DIV');
