@@ -17,8 +17,8 @@ $(function() {
 	var guestNumberViewController = new GuestNumberViewController(guestNumberView, model);
 	var generalController = new GeneralController(homeView,sidebarView,dishView,dishDetailView,lastDishView,dinnerprintoutview,model);
 	var dishFilterController= new DishFilterController(dishView,model);
-	var dishViewController = new DishViewController(dishView, model,this);
-	var addFunctionController = new AddFunctionController(dishDetailView, model,this);
+	var dishViewController = new DishViewController(dishView, model, this);
+	var addFunctionController = new AddFunctionController(dishDetailView, model, this);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
@@ -27,8 +27,8 @@ $(function() {
 	 * of the specific view you're working with (see exampleView.js).
 	 */
     this.showDishDetailsScreen = function(id) {
-	 	dishDetailView.show();
-	 	dishDetailView.loadDishDetailView(id);
+	 		dishDetailView.show();
+	 		dishDetailView.loadDishDetailView(id);
 	 }
 
 

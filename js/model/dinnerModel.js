@@ -5,7 +5,8 @@ var DinnerModel = function() {
   //PART 1
   //initial value
   var guestNumber = 3;
-  var menu = [1,100,202];
+  // var menu = [1,100,202];
+  var menu = [];
 
   var parent = this;
 
@@ -98,26 +99,24 @@ var DinnerModel = function() {
     }
     var newdish=parent.getDish(iditem);
     if (state){
-    	 // for (var i=0; i<3;i++){
-    		 // if (parent.getDish(menu[i]).type === newdish.type){
-           // parent.removeDishFromMenu(menu[i]);
-    		 // }
-    
-    	 // }
-
+    	 for (var i=0; i<menu.length;i++){
+    		 if (parent.getDish(menu[i]).type == newdish.type){
+           parent.removeDishFromMenu(menu[i]);
+    		 }
+    	 }
       menu.push(newdish.id);
 
     }
-    
+
     notifyObservers();
   }
 
 
   //Removes dish from menu
-  this.removeDishFromMenu = function(id) {
+  this.removeDishFromMenu = function(iditem) {
     for(key in dishes){
-      if(dishes[key].id == id) {
-        menu.pop(dishes[key]);
+      if(dishes[key].id == iditem) {
+        menu.pop(dishes[key].id);
       }
     }
     notifyObservers();

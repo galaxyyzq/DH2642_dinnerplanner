@@ -1,7 +1,7 @@
 var DishDetailView = function(container, model,id) {
 
 
-	
+
 	this.container=container;
 
 	//General State Function
@@ -18,10 +18,11 @@ var DishDetailView = function(container, model,id) {
 	var numberOfGuests = container.find(".numberOfGuests");
 	var tableglobe = container.find("#tablelist");
 	var backsearch= this.backsearch = container.find(".backsearch");
-	var id=1;
+	this.currentDishId=1;  //这个id用this是因为会在addFunctionController调用改变
 
 	//Construct View Function
 	this.loadDishDetailView = function(id){
+
 
 		var table = tableglobe;
 		var dishId = id;
@@ -118,11 +119,11 @@ var DishDetailView = function(container, model,id) {
 	//End loadDishDetailView function
 
 	this.update = function() {
-		this.loadDishDetailView(id);
+		this.loadDishDetailView(this.currentDishId);
 	}
 
 	model.addObserver(this);
 
-	this.loadDishDetailView(id);
+	this.loadDishDetailView(this.currentDishId);
 
 }
