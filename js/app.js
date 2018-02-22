@@ -15,7 +15,7 @@ $(function() {
 
 	//Controllers
 	var guestNumberViewController = new GuestNumberViewController(guestNumberView, model);
-	var generalController = new GeneralController(homeView,sidebarView,dishView,dishDetailView,lastDishView,dinnerprintoutview,model);
+	var generalController = new GeneralController(homeView,sidebarView,dishView,dishDetailView,lastDishView,dinnerprintoutview,model,this);
 	var dishFilterController= new DishFilterController(dishView,model);
 	var dishViewController = new DishViewController(dishView, model, this);
 	var addFunctionController = new AddFunctionController(dishDetailView, model, this);
@@ -26,10 +26,37 @@ $(function() {
 	 * In other places you should limit the search only to the children
 	 * of the specific view you're working with (see exampleView.js).
 	 */
+
+	var hideAllViews = function(){
+        $('#dishView').hide();
+        $('#lastDishView').hide();
+        $('#sidebarView').hide();
+        $('#dishDetailView').hide();
+        $('#contentview').hide();
+        $('#homeView').hide();
+    }
+
+
+    this.showDishScreen =  function(){
+        hideAllViews();
+        $('#sidebarView').show();
+        $('#dishView').show();
+    }
+
+    this.showPrintScreen = function(){
+        hideAllViews();
+        $("#contentview").show();
+    }
+
     this.showDishDetailsScreen = function(id) {
 	 		dishDetailView.show();
 	 		dishDetailView.loadDishDetailView(id);
-	 }
+	}
+
+	this.showLastDishScreen = function() {
+	 	    hideAllViews();
+	 		$('#lastDishView').show();
+	}
 
 
 });

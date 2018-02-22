@@ -1,41 +1,41 @@
 // Control the view display
-var GeneralController = function(view1,view2,view3,view4,view5,view6,model){
+var GeneralController = function(homeView,sidebarView,dishView,dishDetailView,lastDishView,dinnerprintoutview,model,app){
 
-  view1.createnewdinner.click(function(){
-    view1.hide();
-    view2.show();
-    view3.show();
-  });
+  homeView.createnewdinner.click(function(){
 
-
-  view4.backsearch.click(function(){
-    view4.hide();
-    view3.show();
-  });
-
-  view5.printbutton.click(function(){
-    view5.hide();
-    view6.show();
-  });
-
-  view5.backbutton.click(function(){
-    view5.hide();
-    view2.show();
-    view3.show();
-  });
-
-  view6.backbutton.click(function(){
-    view6.hide();
-    view2.show();
-    view3.show();
+    app.showDishScreen();
 
   });
 
-  view2.confirmdinner.click(function(){
-    view2.hide();
-    view3.hide();
-    view4.hide();
-    view5.show();
+
+  dishDetailView.backsearch.click(function(){
+
+    app.showDishScreen();
+
+  });
+
+  lastDishView.printbutton.click(function(){
+
+    app.showPrintScreen();
+
+  });
+
+  lastDishView.backbutton.click(function(){
+
+    app.showDishScreen();
+
+  });
+
+  dinnerprintoutview.backbutton.click(function(){
+
+    app.showDishScreen();
+
+  });
+
+  sidebarView.confirmdinner.click(function(){
+
+    app.showLastDishScreen();
+
   });
 
 
