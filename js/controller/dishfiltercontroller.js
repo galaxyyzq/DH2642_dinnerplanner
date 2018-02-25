@@ -14,7 +14,7 @@ var DishFilterController = function(view, model){
 
   var listener_search = function(){
     var nameVal = $("#search").val();
-      var typeVal =$("#filter").val();
+    var typeVal =$("#filter").val();
     view.searchnames = nameVal;
     view.types = typeVal;
     view.loadDishView(typeVal,nameVal)

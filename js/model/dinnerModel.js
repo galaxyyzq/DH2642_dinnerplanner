@@ -89,25 +89,24 @@ var DinnerModel = function() {
 
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
   //it is removed from the menu and the new one added.
+
   this.addDishToMenu = function(iditem) {
 
     var state=true;
     for (key in menu){
-    	if(menu[key] == iditem){
-    		state=false;
-    	}
+      if(menu[key] == iditem){
+        state=false;
+      }
     }
     var newdish=parent.getDish(iditem);
     if (state){
-    	 for (var i=0; i<menu.length;i++){
-    		 if (parent.getDish(menu[i]).type == newdish.type){
-           parent.removeDishFromMenu(menu[i]);
-    		 }
-    	 }
+      for (var i=0; i<menu.length;i++){
+        if (parent.getDish(menu[i]).type == newdish.type){
+          parent.removeDishFromMenu(menu[i]);
+        }
+      }
       menu.push(newdish.id);
-
     }
-
     notifyObservers();
   }
 
@@ -125,35 +124,72 @@ var DinnerModel = function() {
   //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
   //you can use the filter argument to filter out the dish by name or ingredient (use for search)
   //if you don't pass any filter all the dishes will be returned
+
+  /*
   this.getAllDishes = function (type,filter) {
-    return dishes.filter(function(dish) {
-      var found = true;
-      if(filter){
-        found = false;
-        dish.ingredients.forEach(function(ingredient) {
-          if(ingredient.name.indexOf(filter)!=-1) {
-            found = true;
-          }
-        });
-        if(dish.name.indexOf(filter) != -1)
-        {
-          found = true;
-        }
-      }
-      return dish.type == type && found;
-    });
-    notifyObservers();
-  }
+  return dishes.filter(function(dish) {
+  var found = true;
+  if(filter){
+  found = false;
+  dish.ingredients.forEach(function(ingredient) {
+  if(ingredient.name.indexOf(filter)!=-1) {
+  found = true;
+}
+});
+if(dish.name.indexOf(filter) != -1)
+{
+found = true;
+}
+}
+return dish.type == type && found;
+});
+notifyObservers();
+}*/
+
+this.getAllDishes = function (type, callback, errorCallback) {
+
+  var searchBasicUrl='https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=12&offset=0&query=burger&type='
+  var searchtypeUrl=String(type);
+  $.ajax( {
+    url: searchBasicUrl+searchtypeUrl,
+    headers: {
+      'X-Mashape-Key': "Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB"
+    },
+    // type:'get',
+    success: function(data) {
+      callback(data)
+    },
+    error: function(error) {
+      errorCallback(error)
+    }
+  })}
+
 
   //function that returns a dish of specific ID
+  /*
   this.getDish = function (id) {
     for(key in dishes){
       if(dishes[key].id == id) {
         return dishes[key];
       }
     }
-  }
+  }*/
 
+
+  this.getDish = function (id, callback, errorCallback) {
+    $.ajax( {
+      url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"+id+"/information",
+      headers: {
+        'X-Mashape-Key': "Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB"
+      },
+      // type:'get',
+      success: function(data) {
+        callback(data)
+      },
+      error: function(error) {
+        errorCallback(error)
+      }
+    })}
 
   // the dishes variable contains an array of all the
   // dishes in the database. each dish has id, name, type,

@@ -1,7 +1,5 @@
 var DishDetailView = function(container, model,id) {
 
-
-
 	this.container=container;
 
 	//General State Function
@@ -30,23 +28,25 @@ var DishDetailView = function(container, model,id) {
 		dishintro.html("");
 		tableglobe.html("");
 
+		model.getDish(dishId, function(data){
+
 		//1.Middle part: Picture and description
 
 		var div = document.createElement('DIV');
 		//dishname
 		var dishname = document.createElement('h2');
-		dishname.innerHTML = model.getDish(dishId).name;
+		dishname.innerHTML = data.title;
 
 		//dish picture
 		var img = document.createElement("img");
-		var src = "images/" + model.getDish(dishId).image;
+		var src = data.image;
 		img.setAttribute("src", src);
 		img.className = "img-responsive";
 		img.style = "margin: 20px 0 20px 0";
 
 		//dish description
 		var description = document.createElement("p");
-		description.innerHTML = model.getDish(dishId).description;
+		description.innerHTML = data.instructions;
 
 		div.appendChild(dishname);
 		div.appendChild(img);
@@ -62,22 +62,23 @@ var DishDetailView = function(container, model,id) {
 		//var table = container.find("#tablelist");
 
 
-		for(var i = 0; i < model.getDish(dishId).ingredients.length; i++){
+		for(var i = 0; i < data.extendedIngredients.length; i++){
 
 			//var table = container.find("#tablelist");
 			var tablerow = document.createElement('tr');
 
 			var quantity = document.createElement('td');
-			quantity.innerHTML = (model.getDish(dishId).ingredients[i].quantity * model.getNumberOfGuests()) + " " + model.getDish(dishId).ingredients[i].unit;
+			quantity.innerHTML = (data.extendedIngredients[i].amount * model.getNumberOfGuests()) + " " + data.extendedIngredients[i].unit;
 
 			var name = document.createElement('td');
-			name.innerHTML = model.getDish(dishId).ingredients[i].name;
+			name.innerHTML = data.extendedIngredients[i].name;
 
 			var sek = document.createElement('td');
 			sek.innerHTML = "SEK";
 
+//找不到price 用amount先代替
 			var price = document.createElement('td');
-			price.innerHTML = model.getDish(dishId).ingredients[i].price * model.getDish(dishId).ingredients[i].quantity * model.getNumberOfGuests();
+			price.innerHTML = data.extendedIngredients[i].amount * data.extendedIngredients[i].amount * model.getNumberOfGuests();
 
 			//tablediv.appendChild(tablerow);
 			tablerow.appendChild(quantity);
@@ -86,7 +87,7 @@ var DishDetailView = function(container, model,id) {
 			tablerow.appendChild(price);
 
 			// add price every loop
-			getprice=getprice+model.getDish(dishId).ingredients[i].price * model.getDish(dishId).ingredients[i].quantity * model.getNumberOfGuests();
+			getprice=getprice+data.extendedIngredients[i].amount * data.extendedIngredients[i].amount * model.getNumberOfGuests();
 			table.append(tablerow);
 		}
 
@@ -115,6 +116,11 @@ var DishDetailView = function(container, model,id) {
 		tablerow.appendChild(td3);
 		tablerow.appendChild(td4);
 		table.append(tablerow);
+
+	},function(error){
+		alert("error");
+	})
+
 	}
 	//End loadDishDetailView function
 
