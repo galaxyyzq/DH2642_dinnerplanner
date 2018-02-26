@@ -14,6 +14,7 @@ var MenuView = function (container, model) {
 	var totalCost = container.find(".totalcost");
 	var guestnumbervalue = model.getNumberOfGuests();
 
+
 	//Construct View Function
 	var loadMenuView = function (){
 
@@ -21,6 +22,10 @@ var MenuView = function (container, model) {
 
 		var dishprice=[];
 		var totalcost2=0;
+
+
+		console.log(model.getFullMenu());
+		console.log(model.getFullMenu().length);
 
 		for (var i=0; i < model.getFullMenu().length; i++) {
 			/* create table like this:
@@ -34,11 +39,12 @@ var MenuView = function (container, model) {
 			var dishrow = document.createElement("tr");
 
 			var dishname = document.createElement("td");
-			dishname.innerHTML = model.getFullMenu()[i].name;
+
+			dishname.innerHTML = model.getFullMenu()[i].title;
 
 			//calculate price of dish[i]
-			for(var j = 0; j < model.getFullMenu()[i].ingredients.length; j++){
-				dishprice[i] += model.getFullMenu()[i].ingredients[j].price * model.getNumberOfGuests();
+			for(var j = 0; j < model.getFullMenu()[i].extendedIngredients.length; j++){
+				dishprice[i] += model.getFullMenu()[i].extendedIngredients[j].amount * model.getNumberOfGuests();
 			}
 
 			totalcost2=totalcost2+dishprice[i];
