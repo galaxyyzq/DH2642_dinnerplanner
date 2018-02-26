@@ -15,7 +15,7 @@ var Dinnerprintoutview = function(container, model){
 	var printcontent = container.find(".printcontent");
 	var backbutton=this.backbutton = container.find(".backbutton");
 
-	
+
 	//Construct View Function
 	var loadDinnerPrintOutView = function(){
 
@@ -40,7 +40,7 @@ var Dinnerprintoutview = function(container, model){
 			var imgcolumn = document.createElement('div');
 			imgcolumn.className ="col-md-2";
 			var img = document.createElement('img');
-			var src = "images/" + model.getFullMenu()[i].image;
+			var src = model.getFullMenu()[i].Image;
 			img.setAttribute("src", src);
 			img.className = 'img-responsive';
 			img.style = 'margin: 20px 0 20px 0;';
@@ -50,9 +50,9 @@ var Dinnerprintoutview = function(container, model){
 			titlecolumn.className = "col-md-5";
 			titlecolumn.style = "padding: 0 50px 0 10px";
 			var title = document.createElement('h2');
-			title.innerHTML = model.getFullMenu()[i].name;
+			title.innerHTML = model.getFullMenu()[i].Title;
 			var description = document.createElement('p');
-			description.innerHTML = model.getFullMenu()[i].description;
+			// description.innerHTML = model.getFullMenu()[i].Instruct;
 
 			//create preparation column
 			var precolumn = document.createElement('div');
@@ -60,7 +60,7 @@ var Dinnerprintoutview = function(container, model){
 			var title2 = document.createElement('h4');
 			title2.innerHTML = "Preparation";
 			var preparation = document.createElement('p');
-			preparation.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+			preparation.innerHTML = model.getFullMenu()[i].Instruct;
 
 			contentview.appendChild(onedishcontent);
 

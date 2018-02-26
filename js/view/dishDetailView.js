@@ -1,4 +1,4 @@
-var DishDetailView = function(container, model,id) {
+var DishDetailView = function(container, model, id) {
 
 	this.container=container;
 
@@ -16,11 +16,19 @@ var DishDetailView = function(container, model,id) {
 	var numberOfGuests = container.find(".numberOfGuests");
 	var tableglobe = container.find("#tablelist");
 	var backsearch= this.backsearch = container.find(".backsearch");
+	var parent=this;
 	this.currentDishId=1;  //这个id用this是因为会在addFunctionController调用改变
+
+	this.tempId;
+	this.tempTitle;
+	this.tempPrice;
+	this.tempImage;
+	this.tempInstruct;
+
+
 
 	//Construct View Function
 	this.loadDishDetailView = function(id){
-
 
 		var table = tableglobe;
 		var dishId = id;
@@ -30,96 +38,104 @@ var DishDetailView = function(container, model,id) {
 
 		model.getDish(dishId, function(data){
 
-		//1.Middle part: Picture and description
+			//1.Middle part: Picture and description
 
-		var div = document.createElement('DIV');
-		//dishname
-		var dishname = document.createElement('h2');
-		dishname.innerHTML = data.title;
+			var div = document.createElement('DIV');
+			//dishname
+			var dishname = document.createElement('h2');
+			dishname.innerHTML = data.title;
 
-		//dish picture
-		var img = document.createElement("img");
-		var src = data.image;
-		img.setAttribute("src", src);
-		img.className = "img-responsive";
-		img.style = "margin: 20px 0 20px 0";
+			//dish picture
+			var img = document.createElement("img");
+			var src = data.image;
+			img.setAttribute("src", src);
+			img.className = "img-responsive";
+			img.style = "margin: 20px 0 20px 0";
 
-		//dish description
-		var description = document.createElement("p");
-		description.innerHTML = data.instructions;
+			//dish description
+			var description = document.createElement("p");
+			description.innerHTML = data.instructions;
 
-		div.appendChild(dishname);
-		div.appendChild(img);
-		div.appendChild(description);
-		dishintro.append(div);
-
-
-		//2.Right part: ingredient detail
-		numberOfGuests.html(model.getNumberOfGuests());
-
-		var getprice=0;
-
-		//var table = container.find("#tablelist");
+			div.appendChild(dishname);
+			div.appendChild(img);
+			div.appendChild(description);
+			dishintro.append(div);
 
 
-		for(var i = 0; i < data.extendedIngredients.length; i++){
+			//2.Right part: ingredient detail
+			numberOfGuests.html(model.getNumberOfGuests());
+
+			var getprice=0;
 
 			//var table = container.find("#tablelist");
+
+
+			for(var i = 0; i < data.extendedIngredients.length; i++){
+
+				//var table = container.find("#tablelist");
+				var tablerow = document.createElement('tr');
+
+				var quantity = document.createElement('td');
+				quantity.innerHTML = (data.extendedIngredients[i].amount * model.getNumberOfGuests()) + " " + data.extendedIngredients[i].unit;
+
+				var name = document.createElement('td');
+				name.innerHTML = data.extendedIngredients[i].name;
+
+				var sek = document.createElement('td');
+				sek.innerHTML = "SEK";
+
+				//找不到price 用amount先代替
+				var price = document.createElement('td');
+				price.innerHTML = data.extendedIngredients[i].amount * data.extendedIngredients[i].amount * model.getNumberOfGuests();
+
+				//tablediv.appendChild(tablerow);
+				tablerow.appendChild(quantity);
+				tablerow.appendChild(name);
+				tablerow.appendChild(sek);
+				tablerow.appendChild(price);
+
+				// add price every loop
+				getprice=getprice+data.extendedIngredients[i].amount * data.extendedIngredients[i].amount * model.getNumberOfGuests();
+				table.append(tablerow);
+			}
+
+
+
 			var tablerow = document.createElement('tr');
 
-			var quantity = document.createElement('td');
-			quantity.innerHTML = (data.extendedIngredients[i].amount * model.getNumberOfGuests()) + " " + data.extendedIngredients[i].unit;
+			var td1 = document.createElement("td");
+			var td2 = document.createElement("td");
 
-			var name = document.createElement('td');
-			name.innerHTML = data.extendedIngredients[i].name;
 
-			var sek = document.createElement('td');
-			sek.innerHTML = "SEK";
+			var addmenubutton = document.createElement("button");
+			addmenubutton.className = "btn btn-default addButton";
+			addmenubutton.innerHTML = "Add to menu";
+			addmenubutton.setAttribute("id", dishId);
 
-//找不到price 用amount先代替
-			var price = document.createElement('td');
-			price.innerHTML = data.extendedIngredients[i].amount * data.extendedIngredients[i].amount * model.getNumberOfGuests();
+			var td3 = document.createElement("td");
+			var td4 = document.createElement("td");
+			td3.innerHTML = "SEK";
+			td4.innerHTML = getprice;
 
 			//tablediv.appendChild(tablerow);
-			tablerow.appendChild(quantity);
-			tablerow.appendChild(name);
-			tablerow.appendChild(sek);
-			tablerow.appendChild(price);
-
-			// add price every loop
-			getprice=getprice+data.extendedIngredients[i].amount * data.extendedIngredients[i].amount * model.getNumberOfGuests();
+			tablerow.appendChild(td1);
+			td1.appendChild(addmenubutton);
+			tablerow.appendChild(td2);
+			tablerow.appendChild(td3);
+			tablerow.appendChild(td4);
 			table.append(tablerow);
-		}
 
 
+			parent.tempId=dishId;
+			parent.tempTitle=data.title;
+			parent.tempPrice=getprice;
+			parent.tempImage=data.image;
+			parent.tempInstruct=data.instructions;
 
-		var tablerow = document.createElement('tr');
 
-		var td1 = document.createElement("td");
-		var td2 = document.createElement("td");
-
-
-		var addmenubutton = document.createElement("button");
-		addmenubutton.className = "btn btn-default addButton";
-		addmenubutton.innerHTML = "Add to menu";
-		addmenubutton.setAttribute("id", dishId);
-
-		var td3 = document.createElement("td");
-		var td4 = document.createElement("td");
-		td3.innerHTML = "SEK";
-		td4.innerHTML = getprice;
-
-		//tablediv.appendChild(tablerow);
-		tablerow.appendChild(td1);
-		td1.appendChild(addmenubutton);
-		tablerow.appendChild(td2);
-		tablerow.appendChild(td3);
-		tablerow.appendChild(td4);
-		table.append(tablerow);
-
-	},function(error){
-		alert("error");
-	})
+		},function(error){
+			alert("error");
+		})
 
 	}
 	//End loadDishDetailView function

@@ -5,11 +5,17 @@ var DinnerModel = function() {
   //PART 1
   //initial value
   var guestNumber = 3;
-  // var menu = [1,100,202];
   var menu = [];
-
-
   var parent = this;
+  this.addMenu=[];
+
+  var tempDish = function(dishId, dishTitle, dishPrice, dishImage, dishInstruct){
+    this.Id=dishId;
+    this.Title=dishTitle;
+    this.Price=dishPrice;
+    this.Image=dishImage;
+    this.Instruct=dishInstruct;
+  }
 
 
   //PART 2
@@ -64,21 +70,26 @@ var DinnerModel = function() {
   //   notifyObservers();
   // }
 
+  // this.getFullMenu = function() {
+  //
+  //   var fullmenu=[];
+  //
+  //   for (var j=0; j< menu.length; j++){
+  //     this.getDish(menu[j], function(data){
+  //       // console.log(data);
+  //       fullmenu[j]=data;
+  //     },function(error){alert('can not add to menu')})
+  //     }
+  //
+  //   // console.log(fullmenu.length);
+  //   return fullmenu;
+  //   notifyObservers();
+  // }
+
   this.getFullMenu = function() {
-
-    var fullmenu=[];
-
-    for (var j=0; j< menu.length; j++){
-      this.getDish(menu[j], function(data){
-        fullmenu[j]=data;
-      },function(error){alert('can not add to menu')})
-      }
-
-    // console.log(fullmenu.length);
-    return fullmenu;
+    return this.addMenu;
     notifyObservers();
   }
-
 
 
 
@@ -129,26 +140,23 @@ var DinnerModel = function() {
   //   notifyObservers();
   // }
 
-//test
-this.addDishToMenu = function(iditem) {
+  //test
+  this.addDishToMenu = function(id, title, price, image, instruct) {
 
-  // var state=true;
-  // for (key in menu){
-  //   if(menu[key] == iditem){
-  //     state=false;
-  //   }
-  // }
-  // var newdish=parent.getDish(iditem);
-  // if (state){
-  //   for (var i=0; i<menu.length;i++){
-  //     if (parent.getDish(menu[i]).type == newdish.type){
-  //       parent.removeDishFromMenu(menu[i]);
-  //     }
-  //   }
-    menu.push(iditem);
-  // }
-  notifyObservers();
-}
+    var newDish = new tempDish(id, title, price, image, instruct);
+
+    //Check if the dish already in menu
+    var state=true;
+    for (var i = 0; i < this.addMenu.length; i++) {
+      if (id==this.addMenu[i].Id) {
+        state=false;
+      }
+    }
+    if (state) {
+      this.addMenu.push(newDish);
+    }
+    notifyObservers();
+  }
 
 
 
@@ -209,28 +217,28 @@ this.getAllDishes = function (type, callback, errorCallback) {
   //function that returns a dish of specific ID
   /*
   this.getDish = function (id) {
-    for(key in dishes){
-      if(dishes[key].id == id) {
-        return dishes[key];
-      }
+  for(key in dishes){
+  if(dishes[key].id == id) {
+  return dishes[key];
+}
+}
+}*/
+
+
+this.getDish = function (id, callback, errorCallback) {
+  $.ajax( {
+    url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"+id+"/information",
+    headers: {
+      'X-Mashape-Key': "Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB"
+    },
+    // type:'get',
+    success: function(data) {
+      callback(data)
+    },
+    error: function(error) {
+      errorCallback(error)
     }
-  }*/
-
-
-  this.getDish = function (id, callback, errorCallback) {
-    $.ajax( {
-      url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"+id+"/information",
-      headers: {
-        'X-Mashape-Key': "Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB"
-      },
-      // type:'get',
-      success: function(data) {
-        callback(data)
-      },
-      error: function(error) {
-        errorCallback(error)
-      }
-    })}
+  })}
 
   // the dishes variable contains an array of all the
   // dishes in the database. each dish has id, name, type,

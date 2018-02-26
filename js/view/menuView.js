@@ -14,7 +14,6 @@ var MenuView = function (container, model) {
 	var totalCost = container.find(".totalcost");
 	var guestnumbervalue = model.getNumberOfGuests();
 
-
 	//Construct View Function
 	var loadMenuView = function (){
 
@@ -24,10 +23,11 @@ var MenuView = function (container, model) {
 		var totalcost2=0;
 
 
-		console.log(model.getFullMenu());
-		console.log(model.getFullMenu().length);
+		// console.log(model.getFullMenu());
+
 
 		for (var i=0; i < model.getFullMenu().length; i++) {
+			//console.log(model.getFullMenu().length);
 			/* create table like this:
 			<tr>
 			<td>dishname</td>
@@ -40,12 +40,13 @@ var MenuView = function (container, model) {
 
 			var dishname = document.createElement("td");
 
-			dishname.innerHTML = model.getFullMenu()[i].title;
+			dishname.innerHTML = model.getFullMenu()[i].Title;
 
 			//calculate price of dish[i]
-			for(var j = 0; j < model.getFullMenu()[i].extendedIngredients.length; j++){
-				dishprice[i] += model.getFullMenu()[i].extendedIngredients[j].amount * model.getNumberOfGuests();
-			}
+			dishprice[i]=model.getFullMenu()[i].Price * model.getNumberOfGuests();
+			// for(var j = 0; j < model.getFullMenu()[i].extendedIngredients.length; j++){
+			// 	dishprice[i] += model.getFullMenu()[i].extendedIngredients[j].amount * model.getNumberOfGuests();
+			// }
 
 			totalcost2=totalcost2+dishprice[i];
 
