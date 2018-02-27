@@ -16,7 +16,7 @@ var DishView = function (container, model) {
 	var parent = this;
 	this.types="main+course";
 	this.searchnames ="";
-    
+
 
 	//Construct View Function
 	this.loadDishView = function(types,searchnames){
@@ -40,8 +40,8 @@ var DishView = function (container, model) {
 
 				if (searchResult>-1) {
 					var col = document.createElement('DIV');
-					col.className = "col-sm-4";
-
+					col.className = "col-sm-3";
+					col.style="padding:3px;"
 					var thumbnail = document.createElement('DIV');
 					thumbnail.className = "thumbnail";
 					var img = document.createElement('img');
@@ -70,10 +70,6 @@ var DishView = function (container, model) {
 					btn_detail.setAttribute("id", data.results[i].id);
 					divD.appendChild(btn_detail);
 
-					// var btn_add = document.createElement('DIV');
-					// btn_add.innerHTML = "<button href='#' class='btn btn-info btn-sm' role='button'>+  Add</button>";
-					// divD.appendChild(btn_add);
-
 					thumbnail.appendChild(divD);
 					col.appendChild(thumbnail);
 					div.appendChild(col);
@@ -87,16 +83,16 @@ var DishView = function (container, model) {
 			alert("Sorry. something wrong happened here.");
 		} ) //end model
 
-	dishes.append(div);
-}
-//End loadDishView function
+		dishes.append(div);
+	}
+	//End loadDishView function
 
 
-//this.update = function() {
-//	parent.loadDishView(parent.types, parent.searchnames);
-//}
-//model.addObserver(this);
+	//this.update = function() {
+	//	parent.loadDishView(parent.types, parent.searchnames);
+	//}
+	//model.addObserver(this);
 
-this.loadDishView(this.types, parent.searchnames);
+	this.loadDishView(this.types, parent.searchnames);
 
 }

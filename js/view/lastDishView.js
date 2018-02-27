@@ -33,9 +33,11 @@ var LastDishView = function(container, model) {
 		div.className ="col-md-12 dishoverview";
 
 		var totalCost = 0;
-		var cost = 0;
+
 
 		for(var i = 0; i < model.getFullMenu().length; i++){
+
+			var cost = 0;
 
 			var col = document.createElement('DIV');
 			col.className = "thumbnail";
@@ -45,7 +47,7 @@ var LastDishView = function(container, model) {
 			var img = document.createElement('img');
 			img.className = "dishpic";
 			img.style = "margin: 0 10px 0 10px";
-			var src = model.getFullMenu()[i].Image;
+			var src = model.getFullMenu()[i].image;
 			img.setAttribute("src", src);
 			col.appendChild(img);
 
@@ -53,13 +55,13 @@ var LastDishView = function(container, model) {
 			divText.className ="caption text-center";
 
 			var divName = document.createElement('DIV');
-			divName.innerHTML = model.getFullMenu()[i].Title;
+			divName.innerHTML = model.getFullMenu()[i].title;
 			divText.appendChild(divName);
 
-			// for(var j = 0; j < model.getFullMenu()[i].ingredients.length; j++){
-			// 	cost += model.getFullMenu()[i].ingredients[j].price * model.getNumberOfGuests();
-			// }
-			cost = model.getFullMenu()[i].Price
+			for(var j = 0; j < model.getFullMenu()[i].extendedIngredients.length; j++){
+				cost += Math.floor(model.getFullMenu()[i].extendedIngredients[j].amount * 3 * model.getNumberOfGuests());
+			}
+
 			totalCost += cost;
 
 			var divCost = document.createElement('H4');

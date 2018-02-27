@@ -40,13 +40,13 @@ var MenuView = function (container, model) {
 
 			var dishname = document.createElement("td");
 
-			dishname.innerHTML = model.getFullMenu()[i].Title;
+			dishname.innerHTML = model.getFullMenu()[i].title;
 
 			//calculate price of dish[i]
-			dishprice[i]=model.getFullMenu()[i].Price * model.getNumberOfGuests();
-			// for(var j = 0; j < model.getFullMenu()[i].extendedIngredients.length; j++){
-			// 	dishprice[i] += model.getFullMenu()[i].extendedIngredients[j].amount * model.getNumberOfGuests();
-			// }
+			// dishprice[i]=Math.floor(model.getFullMenu().extendedIngredients[i].amount * data.extendedIngredients[i].amount * model.getNumberOfGuests());
+			for(var j = 0; j < model.getFullMenu()[i].extendedIngredients.length; j++){
+				dishprice[i] += Math.floor(model.getFullMenu()[i].extendedIngredients[j].amount * 3 * model.getNumberOfGuests());
+			}
 
 			totalcost2=totalcost2+dishprice[i];
 
@@ -72,4 +72,3 @@ var MenuView = function (container, model) {
 	loadMenuView();
 
 }
-

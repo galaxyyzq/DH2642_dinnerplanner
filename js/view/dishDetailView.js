@@ -19,21 +19,13 @@ var DishDetailView = function(container, model, id) {
 	var parent=this;
 	var loading = container.find("#detailloading");
 
-
-
 	this.currentDishId=1;  //这个id用this是因为会在addFunctionController调用改变
 
-	this.tempId;
-	this.tempTitle;
-	this.tempPrice;
-	this.tempImage;
-	this.tempInstruct;
 
 	//Construct View Function
 	this.loadDishDetailView = function(id){
 
 		loading.show();
-
 
 		var table = tableglobe;
 		var dishId = id;
@@ -41,9 +33,7 @@ var DishDetailView = function(container, model, id) {
 		dishintro.html("");
 		tableglobe.html("");
 
-
 		model.getDish(dishId, function(data){
-
 
 			//1.Middle part: Picture and description
 
@@ -74,8 +64,6 @@ var DishDetailView = function(container, model, id) {
 
 			var getprice=0;
 
-			//var table = container.find("#tablelist");
-
 
 			for(var i = 0; i < data.extendedIngredients.length; i++){
 
@@ -93,7 +81,7 @@ var DishDetailView = function(container, model, id) {
 
 				//找不到price 用amount先代替
 				var price = document.createElement('td');
-				price.innerHTML = data.extendedIngredients[i].amount * data.extendedIngredients[i].amount * model.getNumberOfGuests();
+				price.innerHTML = Math.floor(data.extendedIngredients[i].amount * 3 * model.getNumberOfGuests());
 
 				//tablediv.appendChild(tablerow);
 				tablerow.appendChild(quantity);
@@ -102,7 +90,7 @@ var DishDetailView = function(container, model, id) {
 				tablerow.appendChild(price);
 
 				// add price every loop
-				getprice=getprice+data.extendedIngredients[i].amount * data.extendedIngredients[i].amount * model.getNumberOfGuests();
+				getprice=getprice+Math.floor(data.extendedIngredients[i].amount * 3 * model.getNumberOfGuests());
 				table.append(tablerow);
 			}
 
@@ -133,13 +121,7 @@ var DishDetailView = function(container, model, id) {
 			table.append(tablerow);
 
 
-			parent.tempId=dishId;
-			parent.tempTitle=data.title;
-			parent.tempPrice=getprice;
-			parent.tempImage=data.image;
-			parent.tempInstruct=data.instructions;
-
-		    loading.hide();
+			loading.hide();
 
 
 
@@ -150,8 +132,14 @@ var DishDetailView = function(container, model, id) {
 	}
 	//End loadDishDetailView function
 
-	this.update = function() {
-		this.loadDishDetailView(this.currentDishId);
+	// this.update = function() {
+	// 	this.loadDishDetailView(this.currentDishId);
+	// }
+
+	this.update = function(change) {
+		if(change == "numberOfGuests"){
+			this.loadDishDetailView(this.currentDishId);
+		}
 	}
 
 	model.addObserver(this);

@@ -61,8 +61,8 @@ td {
 
 
 .dishpic{
-	width: 140px;
-	height: 140px;
+	width: 200px;
+	height: 160px;
 }
 
 .dinneroverview{
@@ -134,5 +134,5 @@ td {
   left: 40%;
   top: 90%;
   font:17px;
- 
+
 }

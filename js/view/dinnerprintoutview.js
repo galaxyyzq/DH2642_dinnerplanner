@@ -27,7 +27,7 @@ var Dinnerprintoutview = function(container, model){
 
 		var guestnumbervalue = model.getNumberOfGuests();
 		guestnumber.append(guestnumbernode);
-		guestnumbernode.innerHTML = guestnumbervalue;
+		guestnumbernode.innerHTML = "Your Dinner includes "+ guestnumbervalue + "people";
 
 		var contentview = document.createElement('div');
 
@@ -38,21 +38,20 @@ var Dinnerprintoutview = function(container, model){
 
 			//Create img column
 			var imgcolumn = document.createElement('div');
-			imgcolumn.className ="col-md-2";
+			imgcolumn.className ="col-md-4";
 			var img = document.createElement('img');
-			var src = model.getFullMenu()[i].Image;
+			var src = model.getFullMenu()[i].image;
 			img.setAttribute("src", src);
 			img.className = 'img-responsive';
 			img.style = 'margin: 20px 0 20px 0;';
 
 			//create titlecolumn
 			var titlecolumn = document.createElement('div');
-			titlecolumn.className = "col-md-5";
+			titlecolumn.className = "col-md-4";
 			titlecolumn.style = "padding: 0 50px 0 10px";
 			var title = document.createElement('h2');
-			title.innerHTML = model.getFullMenu()[i].Title;
+			title.innerHTML = model.getFullMenu()[i].title;
 			var description = document.createElement('p');
-			// description.innerHTML = model.getFullMenu()[i].Instruct;
 
 			//create preparation column
 			var precolumn = document.createElement('div');
@@ -60,7 +59,7 @@ var Dinnerprintoutview = function(container, model){
 			var title2 = document.createElement('h4');
 			title2.innerHTML = "Preparation";
 			var preparation = document.createElement('p');
-			preparation.innerHTML = model.getFullMenu()[i].Instruct;
+			preparation.innerHTML = model.getFullMenu()[i].instructions;
 
 			contentview.appendChild(onedishcontent);
 
