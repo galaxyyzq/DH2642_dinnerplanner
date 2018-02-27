@@ -18,6 +18,7 @@ var LastDishView = function(container, model) {
 	//Construct View Function
 	var loadLastDishView = function(){
 
+
 		finalMenu.html("");
 		guestnumber.html("");
 

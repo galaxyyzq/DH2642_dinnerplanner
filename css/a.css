@@ -128,3 +128,11 @@ td {
 .row-place{
 	margin: 10px 0 10px 0;
 }
+
+.load{
+  position: absolute;
+  left: 40%;
+  top: 90%;
+  font:17px;
+ 
+}

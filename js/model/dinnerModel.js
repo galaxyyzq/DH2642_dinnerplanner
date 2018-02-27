@@ -25,9 +25,9 @@ var DinnerModel = function() {
     observers.push(observer);
   }
 
-  var notifyObservers = function() {
+  var notifyObservers = function(change) {
     for(var i=0; i< observers.length; i++) {
-      observers[i].update();
+      observers[i].update(change);
     }
   }
 
@@ -36,7 +36,7 @@ var DinnerModel = function() {
   //functions used in all views
   this.setNumberOfGuests = function(num) {
     guestNumber = num;
-    notifyObservers();
+    notifyObservers("numberOfGuests");
 
   }
 
@@ -155,7 +155,7 @@ var DinnerModel = function() {
     if (state) {
       this.addMenu.push(newDish);
     }
-    notifyObservers();
+    notifyObservers("menu");
   }
 
 
@@ -167,7 +167,7 @@ var DinnerModel = function() {
         menu.pop(dishes[key].id);
       }
     }
-    notifyObservers();
+    notifyObservers("menu");
   }
 
   //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

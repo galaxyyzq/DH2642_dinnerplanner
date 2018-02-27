@@ -63,10 +63,13 @@ var MenuView = function (container, model) {
 	// End loadMenuView function
 
 
-	this.update = function() {
-		loadMenuView();
+	this.update = function(change) {
+		if(change == "numberOfGuests" || change == "menu"){
+			loadMenuView();
+		}
 	}
 	model.addObserver(this);
 	loadMenuView();
 
 }
+

@@ -12,13 +12,17 @@ var DishView = function (container, model) {
 
 	//Define variables
 	var dishes = container.find("#dish");
+	var loading = container.find("#dishloading");
 	var parent = this;
 	this.types="main+course";
 	this.searchnames ="";
-
+    
 
 	//Construct View Function
 	this.loadDishView = function(types,searchnames){
+
+		loading.show();
+
 
 		dishes.html("");
 
@@ -77,9 +81,10 @@ var DishView = function (container, model) {
 				} //end search result filter
 
 			}//end loop
+			loading.hide();
 		},//end callback function
 		function(error){
-			alert("error");
+			alert("Sorry. something wrong happened here.");
 		} ) //end model
 
 	dishes.append(div);
@@ -87,10 +92,10 @@ var DishView = function (container, model) {
 //End loadDishView function
 
 
-this.update = function() {
-	parent.loadDishView(parent.types, parent.searchnames);
-}
-model.addObserver(this);
+//this.update = function() {
+//	parent.loadDishView(parent.types, parent.searchnames);
+//}
+//model.addObserver(this);
 
 this.loadDishView(this.types, parent.searchnames);
 

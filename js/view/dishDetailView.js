@@ -17,6 +17,10 @@ var DishDetailView = function(container, model, id) {
 	var tableglobe = container.find("#tablelist");
 	var backsearch= this.backsearch = container.find(".backsearch");
 	var parent=this;
+	var loading = container.find("#detailloading");
+
+
+
 	this.currentDishId=1;  //这个id用this是因为会在addFunctionController调用改变
 
 	this.tempId;
@@ -25,10 +29,11 @@ var DishDetailView = function(container, model, id) {
 	this.tempImage;
 	this.tempInstruct;
 
-
-
 	//Construct View Function
 	this.loadDishDetailView = function(id){
+
+		loading.show();
+
 
 		var table = tableglobe;
 		var dishId = id;
@@ -36,7 +41,9 @@ var DishDetailView = function(container, model, id) {
 		dishintro.html("");
 		tableglobe.html("");
 
+
 		model.getDish(dishId, function(data){
+
 
 			//1.Middle part: Picture and description
 
@@ -132,9 +139,12 @@ var DishDetailView = function(container, model, id) {
 			parent.tempImage=data.image;
 			parent.tempInstruct=data.instructions;
 
+		    loading.hide();
+
+
 
 		},function(error){
-			alert("error");
+			alert("Sorry, something wrong happened here.");
 		})
 
 	}
